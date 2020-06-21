@@ -1,0 +1,80 @@
+@mixin grid-container($width: null, $media: null) {
+    @include media-check($media) {
+        margin-right: auto;
+        margin-left: auto;
+        box-sizing: border-box;
+        width: 100%;
+    }
+}
+
+@mixin grid-row($gutter: true, $media: null) {
+    @include media-check($media) {
+        display: flex;
+    }
+
+    @if($gutter) {
+        margin-right: $grid-gutter / -2;
+        margin-left: $grid-gutter / -2;
+    }
+}
+
+@mixin grid-col(
+    $size: auto,
+    $columns: $grid-columns,
+    $gutter: true,
+    $media: null
+) {
+    @include media-check($media) {
+        @include _flex-col($size, $columns);
+    }
+
+    @if($gutter) {
+        padding-right: $grid-gutter / 2;
+        padding-left: $grid-gutter / 2;
+        box-sizing: border-box;
+    }
+}
+
+@mixin _flex-col($size, $columns: $grid-columns) {
+    @if type-of($size) == number {
+        flex: 1 1 grid-col-width($size, $columns);
+        max-width: grid-col-width($size, $columns);
+    } @else if $size == auto {
+        flex: 1 1 auto;
+        max-width: none;
+    } @else if $size == none {
+        flex: 0 0 auto;
+        max-width: none;
+    } @else {
+        @warn 'Invalid size type --- ' type-of($size);
+    }
+}
+
+@mixin grid-col-offset($size, $deraction: left, $columns: $grid-columns) {
+    $num: $size / $columns;
+    margin-#{$deraction}: if($num == 0, 0, percentage($num));
+}
+
+@function grid-col-width($size, $columns: $grid-columns) {
+    @return percentage($size / $columns);
+}
+
+@function media-to-list($media) {
+    $mediaList: ();
+
+    @if type-of($media) == map {
+        @each $breakpoint in map-keys($media) {
+            $mediaList: append($mediaList, $breakpoint);
+        }
+    } @else if type-of($media) == list {
+        @each $breakpoint in $media {
+            $mediaList: append($mediaList, $breakpoint, $separator: space);
+        }
+    } @else if type-of($media) == string {
+        $mediaList: append($mediaList, $media);
+    } @else {
+        @warn 'Invalid media type --- ' type-of($media);
+    }
+
+    @return $mediaList;
+}

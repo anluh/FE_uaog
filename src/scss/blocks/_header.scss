@@ -1,0 +1,12 @@
+body {
+    background: $viking;
+}
+
+header {
+    @include grid-col(5);
+    height: 20px;
+    background: green;
+    @include respond-to(phones) {
+        background: red;
+    }
+}

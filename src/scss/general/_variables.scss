@@ -1,0 +1,45 @@
+// colors
+
+$dark-green: #023A39;
+$mosque: #035755;
+$pine-green: #047471;
+$dark-cyan: #05918E;
+$persian-green: #06AEAA;
+$shamrock: #30BCB8;
+$viking: #59C9C6;
+$riptide: #83D7D5;
+$powder-blue: #ACE4E3;
+
+$deep-green: #041C15;
+$dark-cyprus: #062A20;
+$cyprus: #08382A;
+$light-cyprus: #0A4635;
+$jewel: #0C543F;
+$amazon: #35715F;
+$patina: #5D8D7F;
+$sea-nymph: #86AA9F;
+$opal: #AEC6BF;
+
+
+// Grid
+
+$container-max-width: 1366px!default;
+$grid-columns: 12!default;
+$grid-gutter: 15px;
+
+// media queries
+
+///	Map with media queries strings
+
+$break-points: (
+    phones-portrait: 'screen and (max-width: 479px)',
+    phones-landscape: 'screen and (min-width: 480px) and (max-width: 767px)',
+    phones: 'screen and (max-width: 767px)',
+    no-phones: 'screen and (min-width: 768px)',
+    tablets: 'screen and (min-width: 768px) and (max-width: 1023px)',
+    tablets-landscape: 'screen and (min-width: 1024px) and (max-width: 1439px)',
+    mobile: 'screen and (max-width: 1023px)',
+    desktop: 'screen and (min-width: 1024px)',
+    desktop-medium: 'screen and (min-width: 1300px)',
+    desktop-large: 'screen and (min-width: 1440px)'
+);
