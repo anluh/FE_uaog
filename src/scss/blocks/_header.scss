@@ -1,12 +1,267 @@
 body {
-    background: $viking;
+    background-color: black;
+    font-family: 'Montserrat', Arial, sans-serif;
 }
 
-header {
-    @include grid-col(5);
-    height: 20px;
-    background: green;
+.main-header {
+    position: fixed;
+    width: 100%;
+    padding-bottom: 10px;
+    z-index: 20;
+
+    @include respond-to(no-phones){
+        padding-top: 50px;
+    }
+    @include respond-to(phones){
+        padding-top: 25px;
+    }
+
+    &_row {
+        @include grid-row(true, no-phones);
+        @include respond-to(phones) {
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+}
+
+.header-logo {
+    @include respond-to(no-phones) {
+        body:not(.has-announcement) & {
+            display: none;
+        }
+    }
+    &_wrapper {
+        display: flex;
+        align-items: center;
+    }
+    &_img {
+        height: 65px;
+
+        @include respond-to(phones-portrait) {
+            height: 55px;
+        }
+    }
+    &_text {
+        color: #fff;
+        text-transform: uppercase;
+        margin-left: 7px;
+        line-height: .9;
+    }
+    &_text-line {
+        &--big {
+            font-size: 18px;
+            font-weight: 500;
+
+            @include respond-to(phones-portrait) {
+                font-size: 16px;
+            }
+        }
+        &--small {
+            font-size: 12px;
+            font-weight: 300;
+            display: block;
+
+            @include respond-to(phones-portrait) {
+                font-size: 10px;
+            }
+        }
+    }
+}
+
+.nav {
+    @include grid-col(9, $media: desktop);
+    @include grid-col(12, $media: tablets);
+    @include grid-col-offset(1.5, $media: desktop);
+
     @include respond-to(phones) {
-        background: red;
+        display: none;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        overflow-y: hidden;
+        overflow-x: visible;
+        transition: opacity .65s cubic-bezier(.23,1,.32,1) 0s,
+                    background-color .1s cubic-bezier(.23,1,.32,1) 0s;
+        z-index: 1;
+    }
+
+    &_list {
+        display: flex;
+        justify-content: space-between;
+
+        @include respond-to(phones) {
+            text-transform: uppercase;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+        @include respond-to(phones-landscape) {
+            padding-top: 80px;
+        }
+        @include respond-to(phones-portrait) {
+            padding-top: 70px;
+        }
+    }
+
+    &_link {
+        display: block;
+        position: relative;
+        color: #fff;
+        padding: 5px 10px;
+        font-size: 14px;
+        cursor: pointer;
+        transition: all ease-in-out .05s;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 1px;
+            height: 4px;
+            width: 4px;
+            border-radius: 100%;
+            background: $persian-green;
+            opacity: 0;
+            transition: all ease-in-out .1s;
+        }
+
+        &:hover {
+            text-shadow:
+                0 0 .1em $persian-green,
+                0 0 0.5em $persian-green,
+                0 0 1em $persian-green,
+                0 0 1.5em $persian-green,
+                0 0 2em $persian-green,
+                0 0 2.5em $persian-green,
+                0 0 3em $persian-green,
+                0 0 3.5em $persian-green,
+                0 0 4em $persian-green,
+                0 0 4.5em $persian-green,
+                0 0 5em $persian-green;
+            &::before {
+                opacity: 1;
+            }
+        }
+
+        @include respond-to(phones) {
+            padding-top: 4px;
+            padding-bottom: 4px;
+        }
+        @include respond-to(phones-landscape) {
+            padding-right: 25px;
+        }
+    }
+}
+
+.menu-overlay {
+    @include respond-to(no-phones) {
+        display: none;
+    }
+    @include respond-to(phones) {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: #000;
+        z-index: 15;
+        background: linear-gradient(to bottom,rgba(0,0,0,.8) 0,rgba($dark-green,.7) 30%, rgba($dark-green,.7) 100%);
+        transition: all .65s cubic-bezier(.23,1,.32,1) 0s;
+        z-index: 0;
+        opacity: 0;
+
+        &--active {
+            opacity: 1;
+        }
+    }
+}
+
+.menu-button {
+    @include respond-to(no-phones) {
+        display: none;
+    }
+    @include respond-to(phones) {
+        display: flex;
+        z-index: 2;
+
+        &:active, &:focus {
+            outline: none;
+            border: none;
+        }
+    }
+
+    &_text {
+        color: #fff; 
+        text-transform: uppercase;
+        margin-right: 15px;
+        font-size: 15px;
+        font-weight: 500;
+
+        @include respond-to(phones-portrait) {
+            display: none;
+        }
+    }
+
+    &_humburger {
+        width: 30px;
+        height: 24px;
+        position: relative;
+        transform: rotate(0deg);
+        transition: .5s ease-in-out;
+        cursor: pointer;
+    }
+
+    &_humburger-line {
+        display: block;
+        position: absolute;
+        height: 3px;
+        width: 100%;
+        opacity: 1;
+        left: 0;
+        transform: rotate(0deg);
+        background-color: #fff;
+        transition: .25s ease-in-out;
+
+        &:nth-child(1) {
+            top: 0px;
+
+            & .menu-button--open {
+                top: 16px;
+                width: 0%;
+                left: 50%;
+            }
+        }
+        &:nth-child(2),
+        &:nth-child(3) {
+            top: 8px;
+        }
+
+        &:nth-child(4) {
+            top: 16px;
+        }
+    }
+    &--opened {
+        .menu-button_humburger-line {
+            &:nth-child(1) {
+                top: 16px;
+                width: 0%;
+                left: 50%;
+            }
+            &:nth-child(2) {
+                transform: rotate(45deg);
+            }
+            &:nth-child(3) {
+                transform: rotate(-45deg);
+            }
+            &:nth-child(4) {
+                top: 16px;
+                width: 0%;
+                left: 50%;
+            }
+        }
     }
 }

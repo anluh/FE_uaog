@@ -1,0 +1,18 @@
+.container {
+    @include grid-container($container-max-width);
+    padding-left: 35px;
+    padding-right: 35px;
+
+    @include respond-to(phones-portrait) {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+.row {
+    @include grid-row(false);
+}
+
+.row--gutter {
+    @include grid-row();
+}

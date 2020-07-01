@@ -1,21 +1,24 @@
-@mixin grid-container($width: null, $media: null) {
-    @include media-check($media) {
-        margin-right: auto;
-        margin-left: auto;
-        box-sizing: border-box;
-        width: 100%;
+@mixin grid-container($max-width: null) {
+    margin-right: auto;
+    margin-left: auto;
+    box-sizing: border-box;
+    width: 100%;
+
+    @if ($max-width != null) {
+        max-width: $max-width;
     }
 }
 
 @mixin grid-row($gutter: true, $media: null) {
     @include media-check($media) {
         display: flex;
+        
+        @if($gutter) {
+            margin-right: $grid-gutter / -2;
+            margin-left: $grid-gutter / -2;
+        }
     }
 
-    @if($gutter) {
-        margin-right: $grid-gutter / -2;
-        margin-left: $grid-gutter / -2;
-    }
 }
 
 @mixin grid-col(
@@ -50,9 +53,11 @@
     }
 }
 
-@mixin grid-col-offset($size, $deraction: left, $columns: $grid-columns) {
-    $num: $size / $columns;
-    margin-#{$deraction}: if($num == 0, 0, percentage($num));
+@mixin grid-col-offset($size, $deraction: left, $columns: $grid-columns, $media: null) {
+    @include media-check($media) {
+        $num: $size / $columns;
+        margin-#{$deraction}: if($num == 0, 0, percentage($num));
+    }
 }
 
 @function grid-col-width($size, $columns: $grid-columns) {
