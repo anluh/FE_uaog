@@ -321,5 +321,10 @@ table {
 
 button {
     border: none;
-    background: none;;
+    background: none;
+
+    &:active, &:focus {
+        border: none;
+        outline: none;
+    }
 }

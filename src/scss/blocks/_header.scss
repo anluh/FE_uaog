@@ -10,7 +10,8 @@ body {
     z-index: 20;
 
     @include respond-to(no-phones){
-        padding-top: 50px;
+        min-height: 65px;
+        padding-top: 35px;
     }
     @include respond-to(phones){
         padding-top: 25px;
@@ -73,6 +74,8 @@ body {
     @include grid-col(9, $media: desktop);
     @include grid-col(12, $media: tablets);
     @include grid-col-offset(1.5, $media: desktop);
+
+    align-self: center;
 
     @include respond-to(phones) {
         display: none;
@@ -173,9 +176,11 @@ body {
         transition: all .65s cubic-bezier(.23,1,.32,1) 0s;
         z-index: 0;
         opacity: 0;
+        visibility: hidden;
 
         &--active {
             opacity: 1;
+            visibility: visible;
         }
     }
 }

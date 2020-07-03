@@ -11154,6 +11154,7 @@ $(document).ready(function () {
 
   $('.js-menu-button').on('click', openMobileMenu);
   $('.js-nav').on('click', scrollToBlock);
+  $('.js-bottom-arrow').on('click', scrollDown);
 
   // mobile menu 
   function openMobileMenu() {
@@ -11176,6 +11177,13 @@ $(document).ready(function () {
         $('.js-menu-button').click();
       }
     }
+  }
+
+  function scrollDown() {
+    console.log($('#about'));
+    $('html, body').animate({
+      scrollTop: $('#about').offset().top
+    }, 500);
   }
 });
 

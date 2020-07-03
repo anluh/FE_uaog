@@ -6,7 +6,8 @@
     <title></title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
-<body>
+<body class="has-announcement">
+    <!-- Add for body el class 'has-announcement' if we have banners on home block -->
     <header class="main-header">
         <div class="container main-header_container">
             <div class="row main-header_row">
@@ -49,11 +50,37 @@
         <video class="video-player" poster="../uploads/video-poster.jpg" autoplay loop muted>
             <source src="../uploads/assembly.mp4" type="video/mp4">
         </video>
-        <div class="container">
-            <svg>
-                <use xlink:href="../icons/sprite.svg#you-tube"/>
-            </svg>
+        <div class="container center-info">
+            <div class="center-info_wrapper">
+                <img src="../img/logo.png" alt="logo" class="center-info_logo">
+                <div class="center-info_name">
+                    <div class="center-info_text center-info_text--big">Асамблея Бога</div>
+                    <div class="center-info_text center-info_text--small">м. Луцьк</div>
+                </div>
+                <div class="center-info_social-media social-media">
+                    <a href="" class="social-media_link">
+                        <svg class="social-media_icon">
+                            <use xlink:href="../icons/sprite.svg#instagram"/>
+                        </svg>
+                    </a>
+                    <a href="" class="social-media_link">
+                        <svg class="social-media_icon">
+                            <use xlink:href="../icons/sprite.svg#facebook"/>
+                        </svg>
+                    </a>
+                    <a href="" class="social-media_link">
+                        <svg class="social-media_icon">
+                            <use xlink:href="../icons/sprite.svg#you-tube"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
         </div>
+        <button class="home_bottom-arrow js-bottom-arrow bottom-arrow">
+            <svg class="bottom-arrow_icon">
+                <use xlink:href="../icons/sprite.svg#navigation"/>
+            </svg>
+        </button>
     </div>
     <main>
         <div id="about">
