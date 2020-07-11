@@ -17,7 +17,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, .25);
+        background: rgba(0, 0, 0, .5);
     }
     &::after {
         content: '';
@@ -80,13 +80,7 @@
         color: #fff;
 
         &--big {
-            font-weight: 800;
-            font-size: 43px;
-            letter-spacing: .05em;
-
-            @include respond-to(phones-portrait) {
-                font-size: 34px;
-            }
+            @extend .big-title;
         }
 
         &--small {

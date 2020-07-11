@@ -16,3 +16,34 @@
 .row--gutter {
     @include grid-row();
 }
+
+.big-title {
+    font-weight: 800;
+    font-size: 43px;
+    letter-spacing: .05em;
+    text-align: center;
+    text-transform: uppercase;
+
+    @include respond-to(phones-portrait) {
+        font-size: 34px;
+    }
+}
+
+.medium-title {
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 900;
+    background: linear-gradient(90deg, $deep-green 30%, $dark-cyan 70%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    @include respond-to(no-phones) {
+        font-size: 30px;
+    }
+    @include respond-to(phones-landscape) {
+        font-size: 27px;
+    }
+    @include respond-to(phones-portrait) {
+        font-size: 20px;
+    }
+}

@@ -1,5 +1,4 @@
 body {
-    background-color: black;
     font-family: 'Montserrat', Arial, sans-serif;
 }
 
@@ -71,9 +70,9 @@ body {
 }
 
 .nav {
-    @include grid-col(9, $media: desktop);
+    @include grid-col(8, $media: desktop);
     @include grid-col(12, $media: tablets);
-    @include grid-col-offset(1.5, $media: desktop);
+    @include grid-col-offset(2, $media: desktop);
 
     align-self: center;
 
@@ -172,7 +171,7 @@ body {
         height: 100vh;
         background: #000;
         z-index: 15;
-        background: linear-gradient(to bottom,rgba(0,0,0,.8) 0,rgba($dark-green,.7) 30%, rgba($dark-green,.7) 100%);
+        background: linear-gradient(to bottom,rgba(0,0,0,.8) 0,rgba($dark-green,.5) 80%, rgba($dark-green,.5) 100%);
         transition: all .65s cubic-bezier(.23,1,.32,1) 0s;
         z-index: 0;
         opacity: 0;
