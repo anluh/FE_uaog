@@ -57,6 +57,15 @@ module.exports = {
         }
       },
       {
+        test: /\.(jpe?g|png|gif|svg)$/i, 
+        loader: 'file-loader',
+        include: path.join(__dirname, 'src/img'),
+        options: {
+          name: '[name].[ext]',
+          outputPath: 'img/',
+        }
+      },
+      {
         test: /\.svg$/,
         use: [
           {
