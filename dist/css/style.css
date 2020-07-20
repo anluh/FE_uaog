@@ -686,7 +686,7 @@ body {
     fill: #06AEAA; }
 
 .about {
-  background-color: #F2F2F2;
+  background: #F2F2F2 url(img/line.svg) no-repeat center;
   padding-top: 80px;
   padding-bottom: 90px;
   box-shadow: 0px 11px 8px -10px #9a9898, 0px -11px 8px -10px #9a9898, inset 0px 11px 8px -10px rgba(0, 0, 0, 0.8), inset 0px -11px 8px -10px rgba(0, 0, 0, 0.8);
