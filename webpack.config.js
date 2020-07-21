@@ -33,6 +33,7 @@ module.exports = {
         test: /\.(sass|scss)$/,
         include: path.resolve(__dirname, 'src/scss'),
         use: ExtractTextPlugin.extract({
+          publicPath: '../',
           use: [{
             loader: "css-loader",
             options: {
@@ -67,6 +68,9 @@ module.exports = {
       },
       {
         test: /\.svg$/,
+        include: [
+          path.resolve(__dirname, "src/icons")
+        ],
         use: [
           {
             loader: 'svg-sprite-loader',
