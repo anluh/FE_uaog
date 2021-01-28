@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body class="">
     <!-- Add for body el class 'has-announcement' if we have banners on home block -->
-    <header class="main-header">
+    <header class="main-header js-main-header">
         <div class="container main-header_container">
             <div class="row main-header_row">
                 <div class="header-logo">
@@ -41,7 +42,6 @@
                         <li class="nav_item"><span data-id="contacts" class="nav_link js-nav_link">Контакти</span></li>
                     </ul>
                 </nav>
-                <div class="menu-overlay js-menu-overlay"></div>
             </div>
         </div>
     </header>
@@ -83,22 +83,84 @@
         </button>
     </div>
     <main>
-        <div id="about" class="about">
+        <section id="about" class="about">
             <div class="container about_container">
                 <h2 class="about_title">Асамблея Бога - це </br> всесвітній рух п'ятидесятнків</h2>
                 <p class="about_description">Основна ціль церкви - проголошення Благої Звістки.</br> Ми віримо в те, що кожна людина може і повинна мати особисті взаємовідносини з Ісусом Христом і мати можливість бути частиною місцевої діючої церкви</p>
             </div>
-        </div>
-        <div id="vision" class="vision">
+        </section>
+        <section id="vision" class="vision">
             <div class="container vision_container">
-                <h3 class="vision_title">Наше Бачення</h3>
                 <img class="vision_title-img" src="../img/vision-title-ua.png" alt="our vision">
                 <div class="vision_link-wrapper">
                     <a href="#" class="vision_link">Детальніше</a>
                 </div>
             </div>
-        </div>
+        </section>
+        <section id="projects" class="projects ">
+            <div class="projects_slider projects-slider" id="project-slider">  
+                <div class="projects-slider_item pslider-item">
+                    <div class="pslider-item_number js-slide-number container">01</div>
+                    <img src="../uploads/projects/slide1.jpg" class="pslider-item_img js-slide-img" alt="">
+                    <div class="pslider-item_info-block container">
+                        <div class="pslider-item_texts">
+                            <h2 class="pslider-item_title js-slide-title">Недільна школа</h2>
+                            <p class="pslider-item_description">Вже давно відомо, що читабельний зміст буде заважати зосередитись людині, яка оцінює композицію сторінки. </p>
+                        </div>
+                        <a href="/projects#sundayschool" class="pslider-item_link">Детальніше</a>
+                    </div>
+                </div>
+                <div class="projects-slider_item pslider-item">
+                    <div class="pslider-item_number js-slide-number container">02</div>
+                    <img src="../uploads/projects/slide1.jpg" class="pslider-item_img js-slide-img" alt="">
+                    <div class="pslider-item_info-block container">
+                        <div class="pslider-item_texts">
+                            <h2 class="pslider-item_title js-slide-title">Музична школа</h2>
+                            <p class="pslider-item_description">Вже давно відомо, що читабельний зміст буде заважати зосередитись людині, яка оцінює композицію сторінки. </p>
+                        </div>
+                        <a href="/projects#sundayschool" class="pslider-item_link">Детальніше</a>
+                    </div>
+                </div> 
+                <div class="projects-slider_item pslider-item">
+                    <div class="pslider-item_number js-slide-number container">03</div>
+                    <img src="../uploads/projects/slide1.jpg" class="pslider-item_img js-slide-img" alt="">
+                    <div class="pslider-item_info-block container">
+                        <div class="pslider-item_texts">
+                            <h2 class="pslider-item_title js-slide-title">Музична школа</h2>
+                            <p class="pslider-item_description">Вже давно відомо, що читабельний зміст буде заважати зосередитись людині, яка оцінює композицію сторінки. </p>
+                        </div>
+                        <a href="/projects#sundayschool" class="pslider-item_link">Детальніше</a>
+                    </div>
+                </div> 
+                <div class="projects-slider_item pslider-item">
+                    <div class="pslider-item_number js-slide-number container">04</div>
+                    <img src="../uploads/projects/slide1.jpg" class="pslider-item_img js-slide-img" alt="">
+                    <div class="pslider-item_info-block container">
+                        <div class="pslider-item_texts">
+                            <h2 class="pslider-item_title js-slide-title">Музична школа</h2>
+                            <p class="pslider-item_description">Вже давно відомо, що читабельний зміст буде заважати зосередитись людині, яка оцінює композицію сторінки. </p>
+                        </div>                        
+                        <a href="/projects#sundayschool" class="pslider-item_link">Детальніше</a>
+                    </div>
+                </div> 
+            </div>
+            <div class="projects-slider_arrows pslider-arrow">
+                <div class="slick-arrow slick-prev js-arrow-prev pslider-arrow" aria-role="button">
+                    <span class="pslider-arrow_number js-arrow-number"></span>Попереднє
+                    <img src="" alt="" class="pslider-arrow_img js-arrow-img">
+                    <h5 class="pslider-arrow_title js-arrow-title">Недільна школа</h5>
+                </div>
+                <div class="slick-arrow slick-next js-arrow-next pslider-arrow" aria-role="button">
+                    <span class="pslider-arrow_number js-arrow-number"></span>Наступне
+                    <img src="" alt="" class="pslider-arrow_img js-arrow-img">
+                    <h5 class="pslider-arrow_title js-arrow-title">Ми+</h5>
+                </div>
+            </div>
+        </section>
     </main>
+    <footer class="main-footer">
+        <div class="green-overlay js-green-overlay"></div>
+    </footer>
     <script src="../js/bundle.js"></script>
 </body>
 </html>

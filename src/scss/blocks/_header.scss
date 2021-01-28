@@ -3,10 +3,18 @@ body {
 }
 
 .main-header {
-    position: fixed;
+    position: absolute;
     width: 100%;
     padding-bottom: 10px;
     z-index: 20;
+
+    &--fixed {
+        mix-blend-mode: difference;
+        position: fixed;
+        .body--menu-opened & {
+            mix-blend-mode: normal;
+        }
+    }
 
     @include respond-to(no-phones){
         min-height: 65px;
@@ -15,12 +23,15 @@ body {
     @include respond-to(phones){
         padding-top: 25px;
     }
-
+    
     &_row {
         @include grid-row(true, no-phones);
         @include respond-to(phones) {
             justify-content: space-between;
             align-items: center;
+        }
+        .main-header--fixed & {
+            position: relative;
         }
     }
 }
@@ -76,6 +87,28 @@ body {
 
     align-self: center;
 
+    @include respond-to(no-phones) {
+        
+        .main-header--fixed & {
+            @include grid-col(10, $media: desktop);
+            @include grid-col-offset(1, $media: desktop);
+            display: none;
+            padding-top: 60px;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            overflow-y: hidden;
+            overflow-x: visible;
+            transition: opacity .65s cubic-bezier(.23,1,.32,1) 0s,
+                        background-color .1s cubic-bezier(.23,1,.32,1) 0s;
+            z-index: 1;
+        }
+    }
+
+
     @include respond-to(phones) {
         display: none;
         position: fixed;
@@ -95,6 +128,12 @@ body {
         display: flex;
         justify-content: space-between;
 
+        .main-header--fixed & {
+            text-transform: uppercase;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
         @include respond-to(phones) {
             text-transform: uppercase;
             flex-direction: column;
@@ -105,6 +144,14 @@ body {
         }
         @include respond-to(phones-portrait) {
             padding-top: 70px;
+        }
+    }
+
+    &_item {
+        @include respond-to(no-phones) {
+            .main-header--fixed & {
+                padding-top: 5px;
+            }
         }
     }
 
@@ -159,38 +206,28 @@ body {
     }
 }
 
-.menu-overlay {
-    @include respond-to(no-phones) {
-        display: none;
-    }
-    @include respond-to(phones) {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        background: #000;
-        z-index: 15;
-        background: linear-gradient(to bottom,rgba(0,0,0,.8) 0,rgba($dark-green,.5) 80%, rgba($dark-green,.5) 100%);
-        transition: all .65s cubic-bezier(.23,1,.32,1) 0s;
-        z-index: 0;
-        opacity: 0;
-        visibility: hidden;
-
-        &--active {
-            opacity: 1;
-            visibility: visible;
-        }
-    }
-}
-
 .menu-button {
+    opacity: 0;
+    transform: scale(0);
+
+    .main-header--fixed & {
+        opacity: 1;
+        transform: scale(1);
+        transition: .1s ease-in-out;
+        position: absolute;
+        right: 0;
+    }
+
     @include respond-to(no-phones) {
-        display: none;
+        .main-header:not(.main-header--fixed) & {
+            display: none;
+        }
     }
     @include respond-to(phones) {
         display: flex;
         z-index: 2;
+        opacity: 1;
+        transform: scale(1);
 
         &:active, &:focus {
             outline: none;
@@ -204,6 +241,10 @@ body {
         margin-right: 15px;
         font-size: 15px;
         font-weight: 500;
+
+        .main-header--fixed & {
+            display: none;
+        }
 
         @include respond-to(phones-portrait) {
             display: none;
