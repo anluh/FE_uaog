@@ -1,4 +1,5 @@
 .home {
+    @include dark-overlay();
     position: relative;
     height: 100vh;
 
