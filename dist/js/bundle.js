@@ -14264,24 +14264,44 @@ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"
 $(document).ready(function () {
     var _$$slick;
 
-    // $('#project-slider').css('height', $(window).height() + 'px')
+    var direction = null;
 
     $('#project-slider').on('init', function () {
-        getSiblSlide();
+        if (window.innerWidth > 767) {
+            getSiblSlide();
+        }
     });
 
-    $('#project-slider').on('afterChange', function () {
-        getSiblSlide();
+    $('#projects').on('click', '.slick-next', function () {
+        direction = 'next';
+        $('#project-slider').slick('slickNext');
+    });
+
+    $('#projects').on('click', '.slick-prev', function () {
+        direction = 'prev';
+        $('#project-slider').slick('slickPrev');
+    });
+
+    $('#project-slider').on('beforeChange', function () {
+        if (window.innerWidth > 767) {
+            getSiblSlide();
+        }
     });
 
     $('#project-slider').slick((_$$slick = {
         slidesToShow: 1,
         adaptiveHeight: true
-    }, _defineProperty(_$$slick, 'slidesToShow', 1), _defineProperty(_$$slick, 'prevArrow', '.slick-prev'), _defineProperty(_$$slick, 'nextArrow', '.slick-next'), _$$slick));
+    }, _defineProperty(_$$slick, 'slidesToShow', 1), _defineProperty(_$$slick, 'arrows', false), _$$slick));
 
     function getSiblSlide() {
-        var prevSlide = $('#project-slider .slick-active').prev('.slick-slide');
-        var nextSlide = $('#project-slider .slick-active').next('.slick-slide');
+        var currentSlide = $('#project-slider .slick-active');
+        if (direction === 'prev') {
+            currentSlide = currentSlide.prev('.slick-slide');
+        } else {
+            currentSlide = currentSlide.next('.slick-slide');
+        }
+        var prevSlide = currentSlide.prev('.slick-slide');
+        var nextSlide = currentSlide.next('.slick-slide');
         var prevArrow = $('#projects .slick-prev');
         var nextArrow = $('#projects .slick-next');
         pasteArrowsElements(prevSlide, prevArrow);
@@ -14289,12 +14309,31 @@ $(document).ready(function () {
     }
 
     function pasteArrowsElements(slide, arrow) {
-        var img = slide.find('.js-slide-img').attr('src');
+        var newImgSrc = slide.find('.js-slide-img').attr('src');
         var number = slide.find('.js-slide-number').text();
         var title = slide.find('.js-slide-title').text();
-        arrow.find('.js-arrow-img').attr('src', img);
+        // insert info to arrow preview
+        var currentImg = arrow.find('.js-arrow-img');
         arrow.find('.js-arrow-number').text(number);
         arrow.find('.js-arrow-title').text(title);
+        arrow.addClass('fade-in');
+        setTimeout(function () {
+            arrow.removeClass('fade-in');
+        }, 1200);
+
+        if (!direction) {
+            currentImg.attr('src', newImgSrc);
+            return;
+        }
+        if (currentImg.length > 1) {
+            currentImg.slice(1).remove();
+        }
+
+        var newImg = $(currentImg[0]).clone();
+        newImg.attr('src', newImgSrc).insertBefore(currentImg);
+        currentImg.fadeOut(800, function () {
+            $(this).remove();
+        });
     }
 });
 

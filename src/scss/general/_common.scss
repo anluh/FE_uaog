@@ -27,6 +27,9 @@
     @include respond-to(phones-portrait) {
         font-size: 34px;
     }
+    @include respond-to(phones-landscape) {
+        font-size: 42px;
+    }
 }
 
 .medium-title {
@@ -46,6 +49,15 @@
     @include respond-to(phones-portrait) {
         font-size: 20px;
     }
+}
+
+.decorated-title {
+    display: inline;
+    background-image: repeating-linear-gradient(
+        transparent -40%, 
+        transparent 32%, 
+        rgba(6, 174, 170, 0.5) 1px, 
+        rgba(6, 174, 170, 0.5) 71%);
 }
 
 .green-overlay {
