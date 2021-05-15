@@ -1206,9 +1206,9 @@ body {
   display: block; }
 
 .countdown {
-  max-width: 220px;
+  max-width: 410px;
   font-weight: 800;
-  font-size: 12px;
+  font-size: 16px;
   line-height: 1.2;
   margin-left: auto;
   margin-right: auto;
@@ -1221,10 +1221,9 @@ body {
       margin-top: 35px; } }
   .countdown_inst {
     display: flex;
-    font-size: 50px;
+    font-size: 63px;
     justify-content: center;
-    line-height: 1;
-    font-size: 25px; }
+    line-height: 1; }
   .countdown_val {
     position: relative;
     display: flex;
@@ -1232,6 +1231,6 @@ body {
   .countdown_sub {
     display: block;
     color: #06AEAA;
-    font-size: 11px; }
+    font-size: 15px; }
 
 /*# sourceMappingURL=style.css.map*/
