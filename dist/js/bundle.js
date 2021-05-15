@@ -14170,6 +14170,63 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/js/countdown.js":
+/*!*****************************!*\
+  !*** ./src/js/countdown.js ***!
+  \*****************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+var now = new Date();
+var nextSundayUa = new Date(now.toLocaleString('en-US', { timeZone: 'Europe/Kiev' }));
+
+// miliseconds to the next upcoming sunday 11:00
+function timeToTarget() {
+    var now = new Date();
+    var todayUa = new Date(now.toLocaleString('en-US', { timeZone: 'Europe/Kiev' }));
+    var todaysDay = todayUa.getDay();
+    nextSundayUa.setDate(todayUa.getDate() + (7 - todaysDay));
+    nextSundayUa.setHours(11, 0, 0);
+
+    return Math.abs(todayUa - nextSundayUa);
+}
+
+function plural(s, i) {
+    return '<div class="countdown_val"> <span>' + i + '</span> <span class="countdown_sub">' + s + '</span></div>';
+}
+
+// convert miliseconds duration to human readable
+function msReadableDuration() {
+    var duration = timeToTarget();
+    var seconds = Math.floor(duration / 1000 % 60),
+        minutes = Math.floor(duration / (1000 * 60) % 60),
+        hours = Math.floor(duration / (1000 * 60 * 60) % 24),
+        days = Math.floor(duration / (24 * 60 * 60 * 1000) % 7);
+
+    days = days < 10 ? '0' + days : days;
+    hours = hours < 10 ? '0' + hours : hours;
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    seconds = seconds < 10 ? '0' + seconds : seconds;
+
+    return [plural('днів', days), plural('годин', hours), plural('хвилин', minutes)].join(':');
+}
+
+// Save reference to the DIV
+var $refresh = $('.js-countdown ');
+
+$refresh.html(msReadableDuration());
+
+// Update DIV contents every second
+setInterval(function () {
+    $refresh.html(msReadableDuration());
+}, 1000 * 60);
+
+/***/ }),
+
 /***/ "./src/js/index.js":
 /*!*************************!*\
   !*** ./src/js/index.js ***!
@@ -14190,57 +14247,54 @@ function requireAll(r) {
 
 requireAll(__webpack_require__("./src/icons sync recursive \\.svg$"));
 
-$(document).ready(function () {
+// add eventListeners
 
-  // add eventListeners
+$('.js-menu-button').on('click', openMobileMenu);
+$('.js-nav').on('click', scrollToBlock);
+$('.js-bottom-arrow').on('click', scrollDown);
+$(window).on('scroll', fixHeader);
 
-  $('.js-menu-button').on('click', openMobileMenu);
-  $('.js-nav').on('click', scrollToBlock);
-  $('.js-bottom-arrow').on('click', scrollDown);
-  $(window).on('scroll', fixHeader);
+// mobile menu 
+function openMobileMenu() {
+  $('.js-menu-button').toggleClass('menu-button--opened');
+  $('body').toggleClass('body--menu-opened');
+  $('.js-nav').slideToggle();
+  $('.js-green-overlay').toggleClass('green-overlay--active');
+}
 
-  // mobile menu 
-  function openMobileMenu() {
-    $('.js-menu-button').toggleClass('menu-button--opened');
-    $('body').toggleClass('body--menu-opened');
-    $('.js-nav').slideToggle();
-    $('.js-green-overlay').toggleClass('green-overlay--active');
-  }
+function scrollToBlock(e) {
+  if ($(e.target).hasClass('js-nav_link')) {
+    var anchor = '#' + $(e.target).data('id');
 
-  function scrollToBlock(e) {
-    if ($(e.target).hasClass('js-nav_link')) {
-      var anchor = '#' + $(e.target).data('id');
+    if ($(anchor).length < 1) return;
 
-      if ($(anchor).length < 1) return;
-
-      $('html, body').animate({
-        scrollTop: $(anchor).offset().top
-      }, 500);
-
-      if ($('.js-green-overlay').hasClass('green-overlay--active')) {
-        $('.js-menu-button').click();
-      }
-    }
-  }
-
-  function scrollDown() {
     $('html, body').animate({
-      scrollTop: $('#about').offset().top
+      scrollTop: $(anchor).offset().top
     }, 500);
-  }
 
-  function fixHeader() {
-    var scroll = $(window).scrollTop(),
-        header = $('.js-main-header'),
-        stopPoint = header.position().top + header.outerHeight(true);
-
-    if (scroll >= stopPoint) {
-      header.addClass('main-header--fixed');
-    } else {
-      header.removeClass('main-header--fixed');
+    if ($('.js-green-overlay').hasClass('green-overlay--active')) {
+      $('.js-menu-button').click();
     }
   }
-});
+}
+
+function scrollDown() {
+  $('html, body').animate({
+    scrollTop: $('#about').offset().top
+  }, 500);
+}
+
+function fixHeader() {
+  var scroll = $(window).scrollTop(),
+      header = $('.js-main-header'),
+      stopPoint = header.position().top + header.outerHeight(true);
+
+  if (scroll >= stopPoint) {
+    header.addClass('main-header--fixed');
+  } else {
+    header.removeClass('main-header--fixed');
+  }
+}
 
 /***/ }),
 
@@ -14254,6 +14308,8 @@ $(document).ready(function () {
 "use strict";
 
 
+var _$$slick;
+
 __webpack_require__(/*! slick-carousel */ "./node_modules/slick-carousel/slick/slick.js");
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -14261,81 +14317,65 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
 
-$(document).ready(function () {
-    var _$$slick;
+var direction = null;
 
-    var direction = null;
-
-    $('#project-slider').on('init', function () {
-        if (window.innerWidth > 767) {
-            getSiblSlide();
-        }
-    });
-
-    $('#projects').on('click', '.slick-next', function () {
-        direction = 'next';
-        $('#project-slider').slick('slickNext');
-    });
-
-    $('#projects').on('click', '.slick-prev', function () {
-        direction = 'prev';
-        $('#project-slider').slick('slickPrev');
-    });
-
-    $('#project-slider').on('beforeChange', function () {
-        if (window.innerWidth > 767) {
-            getSiblSlide();
-        }
-    });
-
-    $('#project-slider').slick((_$$slick = {
-        slidesToShow: 1,
-        adaptiveHeight: true
-    }, _defineProperty(_$$slick, 'slidesToShow', 1), _defineProperty(_$$slick, 'arrows', false), _$$slick));
-
-    function getSiblSlide() {
-        var currentSlide = $('#project-slider .slick-active');
-        if (direction === 'prev') {
-            currentSlide = currentSlide.prev('.slick-slide');
-        } else {
-            currentSlide = currentSlide.next('.slick-slide');
-        }
-        var prevSlide = currentSlide.prev('.slick-slide');
-        var nextSlide = currentSlide.next('.slick-slide');
-        var prevArrow = $('#projects .slick-prev');
-        var nextArrow = $('#projects .slick-next');
-        pasteArrowsElements(prevSlide, prevArrow);
-        pasteArrowsElements(nextSlide, nextArrow);
-    }
-
-    function pasteArrowsElements(slide, arrow) {
-        var newImgSrc = slide.find('.js-slide-img').attr('src');
-        var number = slide.find('.js-slide-number').text();
-        var title = slide.find('.js-slide-title').text();
-        // insert info to arrow preview
-        var currentImg = arrow.find('.js-arrow-img');
-        arrow.find('.js-arrow-number').text(number);
-        arrow.find('.js-arrow-title').text(title);
-        arrow.addClass('fade-in');
-        setTimeout(function () {
-            arrow.removeClass('fade-in');
-        }, 1200);
-
-        if (!direction) {
-            currentImg.attr('src', newImgSrc);
-            return;
-        }
-        if (currentImg.length > 1) {
-            currentImg.slice(1).remove();
-        }
-
-        var newImg = $(currentImg[0]).clone();
-        newImg.attr('src', newImgSrc).insertBefore(currentImg);
-        currentImg.fadeOut(800, function () {
-            $(this).remove();
-        });
+$('#project-slider').on('init', function () {
+    if (window.innerWidth > 767) {
+        getSiblSlide();
     }
 });
+
+$('#projects').on('click', '.slick-next', function () {
+    direction = 'next';
+    $('#project-slider').slick('slickNext');
+});
+
+$('#projects').on('click', '.slick-prev', function () {
+    direction = 'prev';
+    $('#project-slider').slick('slickPrev');
+});
+
+$('#project-slider').on('beforeChange', function () {
+    if (window.innerWidth > 767) {
+        getSiblSlide();
+    }
+});
+
+$('#project-slider').slick((_$$slick = {
+    slidesToShow: 1,
+    adaptiveHeight: true
+}, _defineProperty(_$$slick, 'slidesToShow', 1), _defineProperty(_$$slick, 'fade', true), _defineProperty(_$$slick, 'arrows', false), _$$slick));
+
+function getSiblSlide() {
+    var currentSlide = $('#project-slider .slick-active');
+    if (direction === 'prev') {
+        currentSlide = currentSlide.prev('.slick-slide');
+    } else if (direction === 'next') {
+        currentSlide = currentSlide.next('.slick-slide');
+    }
+    var prevSlide = currentSlide.prev('.slick-slide').length ? currentSlide.prev('.slick-slide') : $('#project-slider .slick-slide').last();
+    var nextSlide = currentSlide.next('.slick-slide').length ? currentSlide.next('.slick-slide') : $('#project-slider .slick-slide')[0];
+    var prevArrow = $('#projects .slick-prev');
+    var nextArrow = $('#projects .slick-next');
+    pasteArrowsElements($(prevSlide), prevArrow);
+    pasteArrowsElements($(nextSlide), nextArrow);
+}
+
+function pasteArrowsElements(slide, arrow) {
+    var newImgSrc = slide.find('.js-slide-img').attr('src');
+    var number = slide.find('.js-slide-number').text();
+    var title = slide.find('.js-slide-title').text();
+    // insert info to arrow preview
+    var currentImg = arrow.find('.js-arrow-img');
+    arrow.find('.js-arrow-number').text(number);
+    arrow.find('.js-arrow-title').text(title);
+
+    var newImg = $(currentImg[0]).clone();
+    newImg.attr('src', newImgSrc).insertBefore(currentImg);
+    currentImg.fadeOut(800, function () {
+        $(this).remove();
+    });
+}
 
 /***/ }),
 
@@ -14351,14 +14391,15 @@ $(document).ready(function () {
 /***/ }),
 
 /***/ 0:
-/*!************************************************************************!*\
-  !*** multi ./src/js/index.js ./src/js/slider.js ./src/scss/style.scss ***!
-  \************************************************************************/
+/*!**********************************************************************************************!*\
+  !*** multi ./src/js/index.js ./src/js/slider.js ./src/js/countdown.js ./src/scss/style.scss ***!
+  \**********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! ./src/js/index.js */"./src/js/index.js");
 __webpack_require__(/*! ./src/js/slider.js */"./src/js/slider.js");
+__webpack_require__(/*! ./src/js/countdown.js */"./src/js/countdown.js");
 module.exports = __webpack_require__(/*! ./src/scss/style.scss */"./src/scss/style.scss");
 
 

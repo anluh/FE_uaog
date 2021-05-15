@@ -75,7 +75,7 @@
 
 
 .pslider-item {
-    @include dark-overlay(.55, 60%, true);
+    @include dark-overlay(.75, 90%, true);
     &_info-block {
         position: absolute;
         bottom: 40px;
@@ -94,11 +94,6 @@
         @include respond-to(phones) {
             padding: 0 40px;
             text-align: center;
-        }
-
-        .slick-active & {
-            animation-name: fadeInUpSD;
-            animation-duration: 1.2s;
         }
 
         @include respond-to(mobile) {

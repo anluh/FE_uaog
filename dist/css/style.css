@@ -332,26 +332,24 @@ button {
   margin-right: -7.5px;
   margin-left: -7.5px; }
 
-.big-title, .center-info_text--big, .vision_title, .pslider-item_title {
+.big-title, .center-info_text--big, .vision_title, .pslider-item_title, .schedule_title {
   font-weight: 800;
   font-size: 45px;
   letter-spacing: .05em;
   text-align: center;
   text-transform: uppercase; }
   @media screen and (max-width: 479px) {
-    .big-title, .center-info_text--big, .vision_title, .pslider-item_title {
+    .big-title, .center-info_text--big, .vision_title, .pslider-item_title, .schedule_title {
       font-size: 34px; } }
   @media screen and (min-width: 480px) and (max-width: 767px) {
-    .big-title, .center-info_text--big, .vision_title, .pslider-item_title {
+    .big-title, .center-info_text--big, .vision_title, .pslider-item_title, .schedule_title {
       font-size: 42px; } }
 
 .medium-title, .about_title {
   text-transform: uppercase;
   text-align: center;
   font-weight: 900;
-  background: linear-gradient(90deg, #041C15 30%, #05918E 70%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; }
+  color: #fff; }
   @media screen and (min-width: 768px) {
     .medium-title, .about_title {
       font-size: 30px; } }
@@ -362,7 +360,7 @@ button {
     .medium-title, .about_title {
       font-size: 20px; } }
 
-.decorated-title, .pslider-item_title {
+.decorated-title, .pslider-item_title, .schedule_title {
   display: inline;
   background-image: repeating-linear-gradient(transparent -40%, transparent 32%, rgba(6, 174, 170, 0.5) 1px, rgba(6, 174, 170, 0.5) 71%); }
 
@@ -752,11 +750,12 @@ body {
     fill: #06AEAA; }
 
 .about {
-  background: #F2F2F2 url(../img/line.svg) no-repeat center;
+  background: url(../img/line.svg), url(../img/vision-bg.jpg);
   padding-top: 80px;
   padding-bottom: 90px;
-  box-shadow: 0px 11px 8px -10px #9a9898, 0px -11px 8px -10px #9a9898, inset 0px 11px 8px -10px rgba(0, 0, 0, 0.8), inset 0px -11px 8px -10px rgba(0, 0, 0, 0.8);
-  position: relative; }
+  position: relative;
+  background-repeat: no-repeat, no-repeat;
+  background-position: center, top left; }
   @media screen and (max-width: 479px) {
     .about {
       padding-top: 60px;
@@ -766,7 +765,8 @@ body {
     text-align: center;
     max-width: 760px;
     font-size: 17px;
-    line-height: 1.2; }
+    line-height: 1.2;
+    color: #fff; }
     @media screen and (min-width: 480px) and (max-width: 767px) {
       .about_description {
         margin-top: 15px; } }
@@ -926,8 +926,8 @@ body {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 60%;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.55), transparent 80%) no-repeat; }
+    height: 90%;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.75), transparent 80%) no-repeat; }
   .pslider-item_info-block {
     position: absolute;
     bottom: 40px;
@@ -949,9 +949,6 @@ body {
       .pslider-item_info-block {
         padding: 0 40px;
         text-align: center; } }
-    .slick-active .pslider-item_info-block {
-      animation-name: fadeInUpSD;
-      animation-duration: 1.2s; }
     @media screen and (max-width: 1023px) {
       .pslider-item_info-block {
         flex-direction: column;
@@ -1149,5 +1146,92 @@ body {
 .fadeInUpSD {
   -webkit-animation-name: fadeInUpSD;
   animation-name: fadeInUpSD; }
+
+.schedule {
+  background: center/cover no-repeat url(../img/vision-bg.jpg) #000;
+  padding: 50px 0;
+  text-align: center;
+  color: #fff; }
+  .schedule_title {
+    color: #fff;
+    padding: 0 20px;
+    margin: 0 auto; }
+  .schedule_chart {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; }
+    @media screen and (min-width: 768px) {
+      .schedule_chart {
+        margin-top: 15px; } }
+    @media screen and (max-width: 767px) {
+      .schedule_chart {
+        margin-top: 25px; } }
+    @media screen and (max-width: 1023px) {
+      .schedule_chart {
+        justify-content: center; } }
+
+.schedule-chart_day {
+  margin: 20px; }
+
+.schedule-chart_title {
+  text-transform: uppercase;
+  font-size: 18px;
+  padding: 3px 0 3px 12px;
+  margin-bottom: 20px;
+  text-align: left;
+  font-weight: 700;
+  position: relative; }
+  .schedule-chart_title:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: block;
+    width: 8px;
+    height: 100%;
+    background: #06AEAA; }
+
+.schedule-chart_event {
+  margin: 10px auto 0;
+  padding: 10px;
+  min-height: 55px;
+  background: rgba(6, 174, 170, 0.25);
+  max-width: 100px;
+  font-size: 14px;
+  font-weight: 700; }
+
+.schedule-chart_event-name {
+  margin-top: 8px;
+  line-height: 1;
+  display: block; }
+
+.countdown {
+  max-width: 220px;
+  font-weight: 800;
+  font-size: 12px;
+  line-height: 1.2;
+  margin-left: auto;
+  margin-right: auto;
+  text-transform: uppercase; }
+  @media screen and (min-width: 768px) {
+    .countdown {
+      margin-top: 50px; } }
+  @media screen and (max-width: 767px) {
+    .countdown {
+      margin-top: 35px; } }
+  .countdown_inst {
+    display: flex;
+    font-size: 50px;
+    justify-content: center;
+    line-height: 1;
+    font-size: 25px; }
+  .countdown_val {
+    position: relative;
+    display: flex;
+    flex-direction: column; }
+  .countdown_sub {
+    display: block;
+    color: #06AEAA;
+    font-size: 11px; }
 
 /*# sourceMappingURL=style.css.map*/

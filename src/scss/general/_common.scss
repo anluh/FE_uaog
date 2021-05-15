@@ -36,9 +36,7 @@
     text-transform: uppercase;
     text-align: center;
     font-weight: 900;
-    background: linear-gradient(90deg, $deep-green 30%, $dark-cyan 70%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #fff;
 
     @include respond-to(no-phones) {
         font-size: 30px;

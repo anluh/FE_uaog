@@ -1,0 +1,110 @@
+.schedule {
+    background: center / cover no-repeat url("../img/vision-bg.jpg") #000;
+    padding: 50px 0;
+    text-align: center;
+    color: #fff;
+
+    &_title {
+        @extend .big-title;
+        @extend .decorated-title;
+        color: #fff;
+        padding:0 20px;
+        margin: 0 auto;
+    }
+
+    &_chart {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        @include respond-to(no-phones) {
+            margin-top: 15px;
+        }
+        @include respond-to(phones) {
+            margin-top: 25px;
+        }
+        @include respond-to(mobile) {
+            justify-content: center;
+        }
+    }
+}
+
+.schedule-chart {
+    &_day {
+        margin: 20px;
+    }
+
+    &_title {
+        text-transform: uppercase;
+        font-size: 18px;
+        padding: 3px 0 3px 12px;
+        margin-bottom: 20px;
+        text-align: left;
+        font-weight: 700;
+        position: relative;
+
+        &:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: block;
+            width: 8px; 
+            height: 100%;
+            background: $persian-green;
+        }
+    }
+
+    &_event {
+        margin: 10px auto 0;
+        padding: 10px;
+        min-height: 55px;
+        background: rgba($persian-green, .25);
+        max-width: 100px;
+        font-size: 14px;
+        font-weight: 700;
+    }
+
+    &_event-name {
+        margin-top: 8px;
+        line-height: 1;
+        display: block;
+    }
+}
+
+.countdown {
+    max-width: 410px;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 1.2;
+    margin-left: auto;
+    margin-right: auto;
+    text-transform: uppercase;
+
+    @include respond-to(no-phones) {
+        margin-top: 50px;
+    }
+
+    @include respond-to(phones) {
+        margin-top: 35px
+    }
+
+    &_inst {
+        display: flex;
+        font-size: 63px;
+        justify-content: center;
+        line-height: 1;
+    }
+
+    &_val {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &_sub {
+        display: block;
+        color: $persian-green;
+        font-size: 11px;
+    }
+}
