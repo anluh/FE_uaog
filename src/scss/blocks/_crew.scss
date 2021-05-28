@@ -1,0 +1,11 @@
+.crew {
+    padding: 40px 0 0;
+    
+    &_title {
+        @extend .big-title;
+        @extend .decorated-title;
+        color: #fff;
+        padding:0 20px;
+        margin: 0 auto;
+    }
+}

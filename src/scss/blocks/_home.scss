@@ -90,7 +90,6 @@
     justify-content: center;
 
     &_link {
-        margin: 0 10px;
 
         &:hover {
             .social-media_icon {
@@ -106,6 +105,17 @@
         border: 1px solid #fff;
         border-radius: 50%;
         fill: #fff;
+        margin: 0 10px;
+
+        &--smaller {
+            width: 25px;
+            height: 25px;
+            margin: 0 5px;
+        }
+
+        &--tiktok {
+            padding: 6px;
+        }
     }
 }
 

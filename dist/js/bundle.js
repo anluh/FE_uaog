@@ -14005,6 +14005,7 @@ var map = {
 	"./instagram.svg": "./src/icons/instagram.svg",
 	"./menu.svg": "./src/icons/menu.svg",
 	"./navigation.svg": "./src/icons/navigation.svg",
+	"./tiktok.svg": "./src/icons/tiktok.svg",
 	"./you-tube.svg": "./src/icons/you-tube.svg"
 };
 
@@ -14143,6 +14144,26 @@ __webpack_require__.r(__webpack_exports__);
       id: "navigation-usage",
       viewBox: "0 0 201 67",
       url: "/icons/" + "sprite.svg#navigation",
+      toString: function () {
+        return this.url;
+      }
+    });
+
+/***/ }),
+
+/***/ "./src/icons/tiktok.svg":
+/*!******************************!*\
+  !*** ./src/icons/tiktok.svg ***!
+  \******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+      id: "tiktok-usage",
+      viewBox: "0 0 11 12",
+      url: "/icons/" + "sprite.svg#tiktok",
       toString: function () {
         return this.url;
       }

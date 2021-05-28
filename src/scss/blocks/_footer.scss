@@ -1,0 +1,64 @@
+.footer {
+    padding: 45px 0 25px;
+    background: center / cover no-repeat url("../img/vision-bg.jpg") #000;
+    text-align: center;
+    color: #fff;
+
+    &_main {
+        display: flex;
+        justify-content: space-between;
+        max-width: 1020px;
+
+        @include respond-to(phones) {
+            flex-wrap: wrap;
+            justify-content: space-around;
+            justify-content: space-evenly;
+        }
+    }
+
+    &_copyright {
+        font-size: 9px;
+        color: $dark-gray;
+        padding: 10px 10px 0;
+    }
+
+    &_col {
+        max-width: 200px;
+        margin-bottom: 10px;
+
+        @include respond-to(phones) {
+            margin: 0 10px 20px 10px;
+        }
+    }
+}
+
+.footer-col {
+    &--donate {
+        max-width: 125px;
+        
+        @include respond-to(phones) {
+            order: 2;
+            flex-basis: 100%;
+            max-width: initial;
+            text-align: center;
+        }
+    }
+
+    &_logo {
+        max-width: 100%;
+    }
+
+    &_desc {
+        font-size: 12px;
+        margin: 18px 0;
+    }
+
+    &_donate {
+        font-size: 18px;
+    }
+
+    &_donate-btn {
+        @extend .hightlighted-button;
+        margin: 15px auto 0;
+    }
+}

@@ -37,7 +37,7 @@
                         <li class="nav_item"><span data-id="vision" class="nav_link js-nav_link">Бачення</span></li>
                         <li class="nav_item"><span data-id="prjects" class="nav_link js-nav_link">Проекти</span></li>
                         <li class="nav_item"><span data-id="schedule" class="nav_link js-nav_link">Служіння</span></li>
-                        <li class="nav_item"><span data-id="locations" class="nav_link js-nav_link">Контакти</span></li>
+                        <li class="nav_item"><span data-id="map" class="nav_link js-nav_link">Контакти</span></li>
                         <li class="nav_item"><span data-id="crew" class="nav_link js-nav_link">Команда</span></li>
                         <li class="nav_item"><span data-id="donate" class="nav_link js-nav_link">Пожертви</span></li>
                     </ul>
@@ -247,16 +247,74 @@
                     <div class="js-countdown countdown_inst"></div>
                 </div>
                 <div class="stream js-stream">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/live_stream?channel=UCkCntB7v-lZR9cW3E7VtYIQ" frameborder="0" allowfullscreen></iframe>
+                    <iframe width="560" height="315" class="stream_frame" src="https://www.youtube.com/embed/live_stream?channel=UCkCntB7v-lZR9cW3E7VtYIQ" frameborder="0" allowfullscreen></iframe>
                 </div>
             </div>
         </section>
-        <section class="locations" id="locations">
-
+        <section class="map" id="map">
+            <h2 class="crew_title">Наші локації</h2>
         </section>
-        <section class="crew" id="crew"></section>
+        <section class="crew" id="crew">
+            <h2 class="crew_title">Служителі</h2>
+        </section>
     </main>
-    <footer class="main-footer">
+    <footer class="footer">
+        <div class="footer_main container">
+            <div class="footer_col footer-col">
+                <img src="../img/logo-assembly-small.png" alt="logo assembly" class="footer-col_logo"/>
+                <div class="footer-col_desc">Основна ціль церкви - проголошення Благої Звістки.</div>
+                <div class="footer-col_media-links social-media">
+                    <a href="" class="social-media_link">
+                        <svg class="social-media_icon social-media_icon--smaller">
+                            <use xlink:href="../icons/sprite.svg#instagram"/>
+                        </svg>
+                    </a>
+                    <a href="" class="social-media_link">
+                        <svg class="social-media_icon social-media_icon--smaller">
+                            <use xlink:href="../icons/sprite.svg#facebook"/>
+                        </svg>
+                    </a>
+                    <a href="" class="social-media_link">
+                        <svg class="social-media_icon social-media_icon--smaller">
+                            <use xlink:href="../icons/sprite.svg#you-tube"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer_col footer-col footer-col--donate">
+                <div class="footer-col_donate">Підтримай наші проекти</div>
+                <a href="#" class="footer-col_donate-btn">Пожертвувати</a>
+            </div>
+            <div class="footer_col footer-col">
+                <img src="../img/logo-weplus-small.png" alt="logo weplus" class="footer-col_logo"/>
+                <div class="footer-col_desc">Громадська організація</div>
+                <div class="footer-col_media-links social-media">
+                    <a href="" class="social-media_link">
+                        <svg class="social-media_icon social-media_icon--smaller">
+                            <use xlink:href="../icons/sprite.svg#instagram"/>
+                        </svg>
+                    </a>
+                    <a href="" class="social-media_link">
+                        <svg class="social-media_icon social-media_icon--smaller">
+                            <use xlink:href="../icons/sprite.svg#facebook"/>
+                        </svg>
+                    </a>
+                    <a href="" class="social-media_link">
+                        <svg class="social-media_icon social-media_icon--smaller">
+                            <use xlink:href="../icons/sprite.svg#you-tube"/>
+                        </svg>
+                    </a>
+                    <a href="" class="social-media_link">
+                        <svg class="social-media_icon social-media_icon--smaller social-media_icon--tiktok">
+                            <use xlink:href="../icons/sprite.svg#tiktok"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer_copyright">
+            <small>© Assembly Of God Lutsk. All rights reserved.</small>
+        </div>
         <div class="green-overlay js-green-overlay"></div>
     </footer>
     <script src="../js/bundle.js"></script>
