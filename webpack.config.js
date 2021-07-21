@@ -7,6 +7,7 @@ module.exports = {
   entry: [
     './src/js/index.js',
     './src/js/slider.js',
+    './src/js/map.js',
     './src/js/countdown.js',
     './src/scss/style.scss'
   ],

@@ -37,7 +37,7 @@
                         <li class="nav_item"><span data-id="vision" class="nav_link js-nav_link">Бачення</span></li>
                         <li class="nav_item"><span data-id="prjects" class="nav_link js-nav_link">Проекти</span></li>
                         <li class="nav_item"><span data-id="schedule" class="nav_link js-nav_link">Служіння</span></li>
-                        <li class="nav_item"><span data-id="map" class="nav_link js-nav_link">Контакти</span></li>
+                        <li class="nav_item"><span data-id="locations" class="nav_link js-nav_link">Контакти</span></li>
                         <li class="nav_item"><span data-id="crew" class="nav_link js-nav_link">Команда</span></li>
                         <li class="nav_item"><span data-id="donate" class="nav_link js-nav_link">Пожертви</span></li>
                     </ul>
@@ -251,11 +251,32 @@
                 </div>
             </div>
         </section>
-        <section class="map" id="map">
-            <h2 class="crew_title">Наші локації</h2>
+        <section class="locations" id="locations">
+            <div class="locations_title-wrap">
+                <h2 class="locations_title">Наші локації</h2>
+            </div>
+            <div id="map" class="locations_map"></div>
+            <div class="locations_buttons-wrap">
+                <button class="locations_button js-location-button locations_button--active" data-lat="50.749033" data-lng="25.33373" data-address="Будівельників 11">МИ+</button>
+                <button class="locations_button js-location-button" data-lat="50.745051" data-lng="25.315766" data-address="Набережна 4">Церква</button>
+            </div>
         </section>
         <section class="crew" id="crew">
             <h2 class="crew_title">Служителі</h2>
+            <div class="container crew_container">
+                <div class="crew_item crew-item">
+                    <img src="../img/crew.png" alt="pastor photo" class="crew-item_img">
+                    <div class="crew-item_title"><span class="crew-item_name">Сергій Семенюк</span><span class="crew-item_position">старший пастор</span></div>
+                </div>
+                <div class="crew_item crew-item">
+                    <img src="../img/crew.png" alt="pastor photo" class="crew-item_img">
+                    <div class="crew-item_title"><span class="crew-item_name">Сергій Семенюк</span><span class="crew-item_position">старший пастор</span></div>
+                </div>
+                <div class="crew_item crew-item">
+                    <img src="../img/crew.png" alt="pastor photo" class="crew-item_img">
+                    <div class="crew-item_title"><span class="crew-item_name">Сергій Семенюк</span><span class="crew-item_position">старший пастор</span></div>
+                </div>
+            </div>
         </section>
     </main>
     <footer class="footer">
@@ -317,6 +338,10 @@
         </div>
         <div class="green-overlay js-green-overlay"></div>
     </footer>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDkTcUh8DoxnB3uAD-cZ1-cT495UVoU4as&libraries=&v=weekly"
+      
+    ></script>
     <script src="../js/bundle.js"></script>
 </body>
 </html>

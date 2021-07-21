@@ -1,5 +1,9 @@
 .crew {
     padding: 40px 0 0;
+    position: relative;
+    background: center / cover no-repeat url("../img/stars-bg.jpg") #000;
+    text-align: center;
+    
     
     &_title {
         @extend .big-title;
@@ -7,5 +11,105 @@
         color: #fff;
         padding:0 20px;
         margin: 0 auto;
+        
+    }
+
+    &_container {
+        display: flex;
+        justify-content: space-between;
+
+        @include respond-to(phones) {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    &_item {
+        position: relative;
+        display: flex;
+        align-items: flex-end;
+
+        @include respond-to(phones) {
+            margin-bottom: 90px;
+        }
+
+        &:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 12px;
+            background: #000;
+            bottom: -6px;
+            left: 0;
+            filter: blur(6px);
+        }
+
+        &:nth-child(odd) {
+            .crew-item_img {
+                @include respond-to(desktop) {
+                    height: 250px;
+                }
+                @include respond-to(tablets) {
+                    height: 210px;
+                }
+            }
+        }
+        @include respond-to(no-phones) {
+            &:nth-child(1) {
+                .crew-item_title {
+                    top: 31%;
+                    left: 80%;
+                }
+            }
+            &:nth-child(2) {
+                .crew-item_title {
+                    bottom: 20%;
+                    left: 73%;
+                }
+            }
+            &:nth-child(3) {
+                .crew-item_title {
+                    top: 31%;
+                    right: 75%;
+                    text-align: right;
+                }
+            }
+        }
+    } 
+}
+
+.crew-item {
+    &_title {
+        position: absolute;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        width: fit-content;
+
+        @include respond-to(phones) {
+            bottom: -50px;
+            text-align: center;
+            display: block;
+            width: 100%;
+        }
+    }
+
+    &_img {
+        height: 250px;
+        @include respond-to(desktop) {
+            height: 290px;
+        }
+        @include respond-to(tablets) {
+            height: 230px;
+        }
+    }
+
+    &_name {
+        font-weight: 700;
+        font-size: 18px;
+        display: block;
+    }
+    &_position {
+        font-size: 11px;
     }
 }

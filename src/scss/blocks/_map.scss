@@ -1,9 +1,70 @@
-.map {
+.locations {
+    text-align: center;
+    position: relative;
+
     &_title {
         @extend .big-title;
         @extend .decorated-title;
         color: #fff;
-        padding:0 20px;
-        margin: 0 auto;
+        padding: 0 20px;
+        text-align: center;
+    }
+
+    &_title-wrap {
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+
+        @include respond-to(mobile) {
+            top: 50px;
+        }
+        
+        @include respond-to(desktop) {
+            top: 40px;
+        }
+    }
+
+    &_map {
+        height: 430px;
+    }
+
+    &_button {
+        cursor: pointer;
+        height: 31px;
+        width: 87px;
+        background-color: rgba($pine-green, .5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-transform: uppercase;
+        font-size: 15px;
+        font-weight: 800;
+        border-bottom: 2px solid $dark-cyan;
+        color: #fff;
+        margin-right: 18px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        &:active, &:focus {
+            border-bottom: 2px solid $dark-cyan;
+        }
+
+        &--active {
+            filter: drop-shadow(0 0 7px $dark-cyan);
+        }
+
+        &:hover {
+            filter: drop-shadow(0 0 17px $dark-cyan);
+        }
+    }
+
+    &_buttons-wrap {
+        position: absolute;
+        bottom: 40px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
     }
 }

@@ -14319,6 +14319,198 @@ function fixHeader() {
 
 /***/ }),
 
+/***/ "./src/js/map.js":
+/*!***********************!*\
+  !*** ./src/js/map.js ***!
+  \***********************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _mapStyles = __webpack_require__(/*! ./mapStyles.js */ "./src/js/mapStyles.js");
+
+var _mapStyles2 = _interopRequireDefault(_mapStyles);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+var locations = [['Будівельників 11', 50.749033, 25.33373][('Набережна 4', 50.745051, 25.315766)]];
+var locationButtons = $('.js-location-button');
+
+var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 15,
+    center: new google.maps.LatLng(parseFloat(locationButtons[0].getAttribute('data-lat')), parseFloat(locationButtons[0].getAttribute('data-lng'))),
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
+    styles: _mapStyles2.default
+});
+
+var infowindow = new google.maps.InfoWindow();
+var marker = void 0,
+    i = void 0;
+
+for (i = 0; i < locationButtons.length; i++) {
+    marker = new google.maps.Marker({
+        position: new google.maps.LatLng(parseFloat(locationButtons[i].getAttribute('data-lat')), parseFloat(locationButtons[i].getAttribute('data-lng'))),
+        map: map,
+        icon: '../img/marker.svg'
+    });
+
+    google.maps.event.addListener(marker, 'click', function (marker, i) {
+        return function () {
+            infowindow.setContent(locationButtons[i].getAttribute('data-address'));
+            infowindow.open(map, marker);
+        };
+    }(marker, i));
+}
+
+locationButtons.on('click', function (e) {
+    map.setCenter(new google.maps.LatLng(parseFloat(e.target.getAttribute('data-lat')), parseFloat(e.target.getAttribute('data-lng'))));
+    locationButtons.removeClass('locations_button--active');
+    $(e.target).addClass('locations_button--active');
+});
+
+/***/ }),
+
+/***/ "./src/js/mapStyles.js":
+/*!*****************************!*\
+  !*** ./src/js/mapStyles.js ***!
+  \*****************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = [{
+  "elementType": "geometry",
+  "stylers": [{
+    "color": "#212121"
+  }]
+}, {
+  "elementType": "labels.icon",
+  "stylers": [{
+    "visibility": "off"
+  }]
+}, {
+  "elementType": "labels.text.fill",
+  "stylers": [{
+    "color": "#757575"
+  }]
+}, {
+  "elementType": "labels.text.stroke",
+  "stylers": [{
+    "color": "#212121"
+  }]
+}, {
+  "featureType": "administrative",
+  "elementType": "geometry",
+  "stylers": [{
+    "color": "#757575"
+  }]
+}, {
+  "featureType": "administrative.country",
+  "elementType": "labels.text.fill",
+  "stylers": [{
+    "color": "#9e9e9e"
+  }]
+}, {
+  "featureType": "administrative.land_parcel",
+  "stylers": [{
+    "visibility": "off"
+  }]
+}, {
+  "featureType": "administrative.locality",
+  "elementType": "labels.text.fill",
+  "stylers": [{
+    "color": "#bdbdbd"
+  }]
+}, {
+  "featureType": "poi",
+  "elementType": "labels.text.fill",
+  "stylers": [{
+    "color": "#757575"
+  }]
+}, {
+  "featureType": "poi.park",
+  "elementType": "geometry",
+  "stylers": [{
+    "color": "#181818"
+  }]
+}, {
+  "featureType": "poi.park",
+  "elementType": "labels.text.fill",
+  "stylers": [{
+    "color": "#616161"
+  }]
+}, {
+  "featureType": "poi.park",
+  "elementType": "labels.text.stroke",
+  "stylers": [{
+    "color": "#1b1b1b"
+  }]
+}, {
+  "featureType": "road",
+  "elementType": "geometry.fill",
+  "stylers": [{
+    "color": "#2c2c2c"
+  }]
+}, {
+  "featureType": "road",
+  "elementType": "labels.text.fill",
+  "stylers": [{
+    "color": "#8a8a8a"
+  }]
+}, {
+  "featureType": "road.arterial",
+  "elementType": "geometry",
+  "stylers": [{
+    "color": "#373737"
+  }]
+}, {
+  "featureType": "road.highway",
+  "elementType": "geometry",
+  "stylers": [{
+    "color": "#3c3c3c"
+  }]
+}, {
+  "featureType": "road.highway.controlled_access",
+  "elementType": "geometry",
+  "stylers": [{
+    "color": "#4e4e4e"
+  }]
+}, {
+  "featureType": "road.local",
+  "elementType": "labels.text.fill",
+  "stylers": [{
+    "color": "#616161"
+  }]
+}, {
+  "featureType": "transit",
+  "elementType": "labels.text.fill",
+  "stylers": [{
+    "color": "#757575"
+  }]
+}, {
+  "featureType": "water",
+  "elementType": "geometry",
+  "stylers": [{
+    "color": "#000000"
+  }]
+}, {
+  "featureType": "water",
+  "elementType": "labels.text.fill",
+  "stylers": [{
+    "color": "#3d3d3d"
+  }]
+}];
+
+/***/ }),
+
 /***/ "./src/js/slider.js":
 /*!**************************!*\
   !*** ./src/js/slider.js ***!
@@ -14412,14 +14604,15 @@ function pasteArrowsElements(slide, arrow) {
 /***/ }),
 
 /***/ 0:
-/*!**********************************************************************************************!*\
-  !*** multi ./src/js/index.js ./src/js/slider.js ./src/js/countdown.js ./src/scss/style.scss ***!
-  \**********************************************************************************************/
+/*!**************************************************************************************************************!*\
+  !*** multi ./src/js/index.js ./src/js/slider.js ./src/js/map.js ./src/js/countdown.js ./src/scss/style.scss ***!
+  \**************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! ./src/js/index.js */"./src/js/index.js");
 __webpack_require__(/*! ./src/js/slider.js */"./src/js/slider.js");
+__webpack_require__(/*! ./src/js/map.js */"./src/js/map.js");
 __webpack_require__(/*! ./src/js/countdown.js */"./src/js/countdown.js");
 module.exports = __webpack_require__(/*! ./src/scss/style.scss */"./src/scss/style.scss");
 

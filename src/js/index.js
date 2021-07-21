@@ -52,8 +52,11 @@ function fixHeader() {
         
     if (scroll >= stopPoint) {
       header.addClass('main-header--fixed');
+      if (!$('body').hasClass('body--menu-opened')) {
+        $('.js-nav').hide();
+      }
     } else {
       header.removeClass('main-header--fixed');
-      
+      $('.js-nav').show();
     }
 }
