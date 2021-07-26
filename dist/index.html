@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="">
+    <!-- Add for body el class 'has-announcement' if we have banners on home block -->
+    <header class="main-header js-main-header">
+        <div class="container main-header_container">
+            <div class="row main-header_row">
+                <div class="header-logo">
+                    <div class="header-logo_wrapper">
+                        <img src="../img/logo.png" alt="logo" class="header-logo_img">
+                        <div class="header-logo_text">
+                            <span class="header-logo_text-line header-logo_text-line--big">Асамблея <br/> Бога <br/></span>
+                            <span class="header-logo_text-line header-logo_text-line--small">м. Луцьк</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="menu-button js-menu-button">
+                    <span class="menu-button_text">Меню</span>
+                    <div class="menu-button_humburger">
+                        <span class="menu-button_humburger-line"></span>
+                        <span class="menu-button_humburger-line"></span>
+                        <span class="menu-button_humburger-line"></span>
+                        <span class="menu-button_humburger-line"></span>
+                    </div>
+                </button>
+                <nav class="nav js-nav">
+                    <ul class="nav_list">
+                        <li class="nav_item"><span data-id="home" class="nav_link js-nav_link">Головна</span></li>
+                        <li class="nav_item"><span data-id="about" class="nav_link js-nav_link">Про нас</span></li>
+                        <li class="nav_item"><span data-id="vision" class="nav_link js-nav_link">Бачення</span></li>
+                        <li class="nav_item"><span data-id="prjects" class="nav_link js-nav_link">Проекти</span></li>
+                        <li class="nav_item"><span data-id="schedule" class="nav_link js-nav_link">Служіння</span></li>
+                        <li class="nav_item"><span data-id="locations" class="nav_link js-nav_link">Контакти</span></li>
+                        <li class="nav_item"><span data-id="crew" class="nav_link js-nav_link">Команда</span></li>
+                        <li class="nav_item"><span data-id="donate" class="nav_link js-nav_link">Пожертви</span></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <div id="home" class="home">
+
+        <video class="video-player" poster="../uploads/video-poster.jpg" autoplay loop muted>
+            <source src="../uploads/assembly.mp4" type="video/mp4">
+        </video>
+        <div class="container center-info">
+            <div class="center-info_wrapper">
+                <img src="../img/logo.png" alt="logo" class="center-info_logo">
+                <div class="center-info_name">
+                    <h1 class="center-info_text center-info_text--big">Асамблея Бога</h1>
+                    <div class="center-info_text center-info_text--small">м. Луцьк</div>
+                </div>
+                <div class="center-info_social-media social-media">
+                    <a href="" class="social-media_link">
+                        <svg class="social-media_icon">
+                            <use xlink:href="../icons/sprite.svg#instagram"/>
+                        </svg>
+                    </a>
+                    <a href="" class="social-media_link">
+                        <svg class="social-media_icon">
+                            <use xlink:href="../icons/sprite.svg#facebook"/>
+                        </svg>
+                    </a>
+                    <a href="" class="social-media_link">
+                        <svg class="social-media_icon">
+                            <use xlink:href="../icons/sprite.svg#you-tube"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <button class="home_bottom-arrow js-bottom-arrow bottom-arrow">
+            <svg class="bottom-arrow_icon">
+                <use xlink:href="../icons/sprite.svg#navigation"/>
+            </svg>
+        </button>
+    </div>
+    <main>
+        <section id="about" class="about">
+            <div class="container about_container">
+                <h2 class="about_title">Асамблея Бога - це </br> всесвітній рух п'ятидесятнків</h2>
+                <p class="about_description">Основна ціль церкви - проголошення Благої Звістки.</br> Ми віримо в те, що кожна людина може і повинна мати особисті взаємовідносини з Ісусом Христом і мати можливість бути частиною місцевої діючої церкви</p>
+            </div>
+        </section>
+        <section id="vision" class="vision">
+            <div class="container vision_container">
+                <h3 class="vision_title">Наше Бачення</h3>
+                <img class="vision_title-img" src="../img/vision-title-ua.png" alt="our vision">
+                <div class="vision_link-wrapper">
+                    <a href="#" class="vision_link">Детальніше</a>
+                </div>
+            </div>
+        </section>
+        <section id="projects" class="projects ">
+            <div class="projects_slider projects-slider" id="project-slider">  
+                <div class="projects-slider_item pslider-item">
+                    <div class="pslider-item_number js-slide-number container">01</div>
+                    <img src="../uploads/projects/slide1.jpg" class="pslider-item_img js-slide-img" alt="">
+                    <div class="pslider-item_info-block container">
+                        <div class="pslider-item_texts">
+                            <div class="pslider-item_title-wrap">
+                                <h2 class="pslider-item_title js-slide-title">Недільна школа</h2>
+                            </div>
+                            <p class="pslider-item_description">Вже давно відомо, що читабельний зміст буде заважати зосередитись людині, яка оцінює композицію сторінки. </p>
+                        </div>
+                        <a href="/projects#sundayschool" class="pslider-item_link">Детальніше</a>
+                    </div>
+                </div>
+                <div class="projects-slider_item pslider-item">
+                    <div class="pslider-item_number js-slide-number container">02</div>
+                    <img src="../uploads/projects/slide2.jpg" class="pslider-item_img js-slide-img" alt="">
+                    <div class="pslider-item_info-block container">
+                        <div class="pslider-item_texts">
+                            <div class="pslider-item_title-wrap">
+                                <h2 class="pslider-item_title js-slide-title">Музична школа</h2>
+                            </div>
+                            <p class="pslider-item_description">Вже давно відомо, що читабельний зміст буде заважати зосередитись людині, яка оцінює композицію сторінки. </p>
+                        </div>
+                        <a href="/projects#sundayschool" class="pslider-item_link">Детальніше</a>
+                    </div>
+                </div> 
+                <div class="projects-slider_item pslider-item">
+                    <div class="pslider-item_number js-slide-number container">03</div>
+                    <img src="../uploads/projects/slide3.jpg" class="pslider-item_img js-slide-img" alt="">
+                    <div class="pslider-item_info-block container">
+                        <div class="pslider-item_texts">
+                            <div class="pslider-item_title-wrap">
+                                <h2 class="pslider-item_title js-slide-title">Музична школа</h2>
+                            </div>
+                            <p class="pslider-item_description">Вже давно відомо, що читабельний зміст буде заважати зосередитись людині, яка оцінює композицію сторінки. </p>
+                        </div>
+                        <a href="/projects#sundayschool" class="pslider-item_link">Детальніше</a>
+                    </div>
+                </div> 
+                <div class="projects-slider_item pslider-item">
+                    <div class="pslider-item_number js-slide-number container">04</div>
+                    <img src="../uploads/projects/slide5.jpg" class="pslider-item_img js-slide-img" alt="">
+                    <div class="pslider-item_info-block container">
+                        <div class="pslider-item_texts">
+                            <div class="pslider-item_title-wrap">
+                                <h2 class="pslider-item_title js-slide-title">Музична школа</h2>
+                            </div>
+                            <p class="pslider-item_description">Вже давно відомо, що читабельний зміст буде заважати зосередитись людині, яка оцінює композицію сторінки. </p>
+                        </div>                        
+                        <a href="/projects#sundayschool" class="pslider-item_link">Детальніше</a>
+                    </div>
+                </div> 
+            </div>
+            <div class="projects-slider_arrows">
+                <div class="slick-arrow slick-prev js-arrow-prev pslider-arrow" aria-role="button">
+                    <img src="" alt="" class="pslider-arrow_img js-arrow-img">
+                    <div class="pslider-arrow_content">
+                        <div class="pslider-arrow_count">
+                            <span class="pslider-arrow_number js-arrow-number"></span>Попереднє
+                        </div>
+                        <div class="pslider-arrow_icon pslider-arrow_icon--prev">
+                            <svg class="pslider-arrow_svg">
+                                <use xlink:href="../icons/sprite.svg#arrow"/>
+                            </svg>
+                        </div>
+                        <h5 class="pslider-arrow_title js-arrow-title">Недільна школа</h5>
+                    </div>
+                </div>
+                <div class="slick-arrow slick-next js-arrow-next pslider-arrow" aria-role="button">
+                    <img src="" alt="" class="pslider-arrow_img js-arrow-img">
+                    <div class="pslider-arrow_content">
+                        <div class="pslider-arrow_count">
+                            <span class="pslider-arrow_number js-arrow-number"></span>Наступне
+                        </div>
+                        <div class="pslider-arrow_icon pslider-arrow_icon--next">
+                            <svg class="pslider-arrow_svg">
+                                <use xlink:href="../icons/sprite.svg#arrow"/>
+                            </svg>
+                        </div>
+                        <h5 class="pslider-arrow_title js-arrow-title">Ми+</h5>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="schedule" class="schedule">
+            <div class="container schedule_container">
+                <h2 class="schedule_title">Графік</h2>
+                <div class="schedule_chart schedule-chart">
+                    <div class="schedule-chart_day">
+                        <div class="schedule-chart_title">понеділок</div>
+                        <div class="schedule-chart_event">
+                            <span class="schedule-chart_event-time">19:00</span>
+                            <span class="schedule-chart_event-name">Домашні групи</span>
+                        </div>
+                    </div>
+                    <div class="schedule-chart_day">
+                        <div class="schedule-chart_title">вівторок</div>
+                        <div class="schedule-chart_event">
+                            <span class="schedule-chart_event-time">20:00</span>
+                            <span class="schedule-chart_event-name">Музична школа</span>
+                        </div>
+                    </div>
+                    <div class="schedule-chart_day">
+                        <div class="schedule-chart_title">середа</div>
+                        <div class="schedule-chart_event">
+                            <span class="schedule-chart_event-time">19:00</span>
+                            <span class="schedule-chart_event-name">Молитва</span>
+                        </div>
+                    </div>
+                    <div class="schedule-chart_day">
+                        <div class="schedule-chart_title">четвер</div>
+                        <div class="schedule-chart_event">
+                            <span class="schedule-chart_event-time">19:00</span>
+                            <span class="schedule-chart_event-name"></span>
+                        </div>
+                    </div>
+                    <div class="schedule-chart_day">
+                        <div class="schedule-chart_title">п'ятниця</div>
+                        <div class="schedule-chart_event">
+                            <span class="schedule-chart_event-time">19:00</span>
+                            <span class="schedule-chart_event-name">Молитва</span>
+                        </div>
+                        <div class="schedule-chart_event">
+                            <span class="schedule-chart_event-time">19:00</span>
+                            <span class="schedule-chart_event-name">Ми+</span>
+                        </div>
+                    </div>
+                    <div class="schedule-chart_day">
+                        <div class="schedule-chart_title">субота</div>
+                        <div class="schedule-chart_event">
+                            <span class="schedule-chart_event-time"></span>
+                            <span class="schedule-chart_event-name"></span>
+                        </div>
+                    </div>
+                    <div class="schedule-chart_day">
+                        <div class="schedule-chart_title">неділя</div>
+                        <div class="schedule-chart_event">
+                            <span class="schedule-chart_event-time">11:00</span>
+                            <span class="schedule-chart_event-name">Центральне служіння</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="countdown">
+                    <div class="countdown_title">До початку центрального богослужіння</div>
+                    <div class="js-countdown countdown_inst"></div>
+                </div>
+                <div class="stream js-stream">
+                    <iframe width="560" height="315" class="stream_frame" src="https://www.youtube.com/embed/live_stream?channel=UCkCntB7v-lZR9cW3E7VtYIQ" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+        <section class="locations" id="locations">
+            <div class="locations_title-wrap">
+                <h2 class="locations_title">Наші локації</h2>
+            </div>
+            <div id="map" class="locations_map"></div>
+            <div class="locations_buttons-wrap">
+                <button class="locations_button js-location-button locations_button--active" data-lat="50.749033" data-lng="25.33373" data-address="Будівельників 11">МИ+</button>
+                <button class="locations_button js-location-button" data-lat="50.745051" data-lng="25.315766" data-address="Набережна 4">Церква</button>
+            </div>
+        </section>
+        <section class="crew" id="crew">
+            <h2 class="crew_title">Служителі</h2>
+            <div class="container crew_container">
+                <div class="crew_item crew-item">
+                    <img src="../img/crew.png" alt="pastor photo" class="crew-item_img">
+                    <div class="crew-item_title"><span class="crew-item_name">Сергій Семенюк</span><span class="crew-item_position">старший пастор</span></div>
+                </div>
+                <div class="crew_item crew-item">
+                    <img src="../img/crew.png" alt="pastor photo" class="crew-item_img">
+                    <div class="crew-item_title"><span class="crew-item_name">Сергій Семенюк</span><span class="crew-item_position">старший пастор</span></div>
+                </div>
+                <div class="crew_item crew-item">
+                    <img src="../img/crew.png" alt="pastor photo" class="crew-item_img">
+                    <div class="crew-item_title"><span class="crew-item_name">Сергій Семенюк</span><span class="crew-item_position">старший пастор</span></div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="footer_main container">
+            <div class="footer_col footer-col">
+                <img src="../img/logo-assembly-small.png" alt="logo assembly" class="footer-col_logo"/>
+                <div class="footer-col_desc">Основна ціль церкви - проголошення Благої Звістки.</div>
+                <div class="footer-col_media-links social-media">
+                    <a href="" class="social-media_link">
+                        <svg class="social-media_icon social-media_icon--smaller">
+                            <use xlink:href="../icons/sprite.svg#instagram"/>
+                        </svg>
+                    </a>
+                    <a href="" class="social-media_link">
+                        <svg class="social-media_icon social-media_icon--smaller">
+                            <use xlink:href="../icons/sprite.svg#facebook"/>
+                        </svg>
+                    </a>
+                    <a href="" class="social-media_link">
+                        <svg class="social-media_icon social-media_icon--smaller">
+                            <use xlink:href="../icons/sprite.svg#you-tube"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer_col footer-col footer-col--donate">
+                <div class="footer-col_donate">Підтримай наші проекти</div>
+                <a href="#" class="footer-col_donate-btn">Пожертвувати</a>
+            </div>
+            <div class="footer_col footer-col">
+                <img src="../img/logo-weplus-small.png" alt="logo weplus" class="footer-col_logo"/>
+                <div class="footer-col_desc">Громадська організація</div>
+                <div class="footer-col_media-links social-media">
+                    <a href="" class="social-media_link">
+                        <svg class="social-media_icon social-media_icon--smaller">
+                            <use xlink:href="../icons/sprite.svg#instagram"/>
+                        </svg>
+                    </a>
+                    <a href="" class="social-media_link">
+                        <svg class="social-media_icon social-media_icon--smaller">
+                            <use xlink:href="../icons/sprite.svg#facebook"/>
+                        </svg>
+                    </a>
+                    <a href="" class="social-media_link">
+                        <svg class="social-media_icon social-media_icon--smaller">
+                            <use xlink:href="../icons/sprite.svg#you-tube"/>
+                        </svg>
+                    </a>
+                    <a href="" class="social-media_link">
+                        <svg class="social-media_icon social-media_icon--smaller social-media_icon--tiktok">
+                            <use xlink:href="../icons/sprite.svg#tiktok"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer_copyright">
+            <small>© Assembly Of God Lutsk. All rights reserved.</small>
+        </div>
+        <div class="green-overlay js-green-overlay"></div>
+    </footer>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDkTcUh8DoxnB3uAD-cZ1-cT495UVoU4as&libraries=&v=weekly"
+      
+    ></script>
+    <script src="../js/bundle.js"></script>
+</body>
+</html>

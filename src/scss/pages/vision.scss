@@ -1,0 +1,83 @@
+.vision-section {
+    &--dark {
+        background: center / cover no-repeat url("../img/vision-dark-bg.jpg") #000;
+        color: rgba(#fff, 0.7);
+        
+        b {
+            color: #fff;
+        } 
+    }
+    &--light {
+        background: center / cover no-repeat url("../img/vision-light-bg.jpg") #fff;
+        color: rgba(#000, 0.7);
+
+        b {
+            color: #000;
+        } 
+    }
+
+    &_wrap {
+        background-size: contain;
+        background-repeat: no-repeat;
+
+        &--img-right {
+            background-position: right;
+        }
+        &--img-left {
+            background-position: left;
+        }
+        &--img-center {
+            background-position: center;
+        }
+
+        &--section1 {
+            background-image:  url("../img/vision-section1.png");
+        }
+        &--section2 {
+            background-image:  url("../img/vision-section2.png");
+        }
+        &--section3 {
+            background-image:  url("../img/vision-section3.png");
+        }
+        &--section4 {
+            background-image:  url("../img/vision-section4.png");
+        }
+        &--section5 {
+            background-image:  url("../img/vision-section5.png");
+        }
+    }
+
+    &_text {
+        padding: 102px 45px;
+        max-width: 65%;
+        font-weight: 800;
+        font-size: 30px;
+
+        &--left {
+            margin-right: auto;
+            margin-left: 0;
+            text-align: left;
+        }
+
+        &--right {
+            margin-left: auto;
+            margin-right: 0;
+            text-align: right;
+        }
+
+        &--center {
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        b {
+            font-weight: 900;
+        }
+    }
+
+    &_
+
+    &:nth-child(1) {
+        background-image: url("../img/vision-section1.png");
+    }
+}

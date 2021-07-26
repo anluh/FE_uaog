@@ -343,7 +343,7 @@ button {
       font-size: 34px; } }
   @media screen and (min-width: 480px) and (max-width: 767px) {
     .big-title, .center-info_text--big, .vision_title, .pslider-item_title, .schedule_title, .crew_title, .locations_title {
-      font-size: 42px; } }
+      font-size: 40px; } }
 
 .medium-title, .about_title {
   text-transform: uppercase;
@@ -1326,13 +1326,18 @@ body {
   position: relative; }
   .locations_title {
     color: #fff;
-    padding: 0 20px; }
+    padding: 0 20px;
+    text-align: center; }
   .locations_title-wrap {
     position: absolute;
     z-index: 1;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 40px; }
+    width: 100%; }
+    @media screen and (max-width: 1023px) {
+      .locations_title-wrap {
+        top: 50px; } }
+    @media screen and (min-width: 1024px) {
+      .locations_title-wrap {
+        top: 40px; } }
   .locations_map {
     height: 430px; }
   .locations_button {
@@ -1410,5 +1415,72 @@ body {
 
 .footer-col_donate-btn {
   margin: 15px auto 0; }
+
+.vision-section--dark {
+  background: center/cover no-repeat url(../img/vision-dark-bg.jpg) #000;
+  color: rgba(255, 255, 255, 0.7); }
+  .vision-section--dark b {
+    color: #fff; }
+
+.vision-section--light {
+  background: center/cover no-repeat url(../img/vision-light-bg.jpg) #fff;
+  color: rgba(0, 0, 0, 0.7); }
+  .vision-section--light b {
+    color: #000; }
+
+.vision-section_wrap {
+  background-size: contain;
+  background-repeat: no-repeat; }
+  .vision-section_wrap--img-right {
+    background-position: right; }
+  .vision-section_wrap--img-left {
+    background-position: left; }
+  .vision-section_wrap--img-center {
+    background-position: center; }
+  .vision-section_wrap--section1 {
+    background-image: url(../img/vision-section1.png); }
+  .vision-section_wrap--section2 {
+    background-image: url(../img/vision-section2.png); }
+  .vision-section_wrap--section3 {
+    background-image: url(../img/vision-section3.png); }
+  .vision-section_wrap--section4 {
+    background-image: url(../img/vision-section4.png); }
+  .vision-section_wrap--section5 {
+    background-image: url(../img/vision-section5.png); }
+
+.vision-section_text {
+  padding: 102px 45px;
+  max-width: 65%;
+  font-weight: 800;
+  font-size: 30px; }
+  .vision-section_text--left {
+    margin-right: auto;
+    margin-left: 0;
+    text-align: left; }
+  .vision-section_text--right {
+    margin-left: auto;
+    margin-right: 0;
+    text-align: right; }
+  .vision-section_text--center {
+    margin: 0 auto;
+    text-align: center; }
+  .vision-section_text b {
+    font-weight: 900; }
+
+.vision-section_ .vision-section:nth-child(1) {
+  background-image: url(../img/vision-section1.png); }
+
+.background-img {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: auto; }
+.background-img {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: auto; }
 
 /*# sourceMappingURL=style.css.map*/
