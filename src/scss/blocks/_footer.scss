@@ -8,6 +8,8 @@
         display: flex;
         justify-content: space-between;
         max-width: 1020px;
+        z-index: 1;
+        position: relative;
 
         @include respond-to(phones) {
             flex-wrap: wrap;
@@ -20,6 +22,8 @@
         font-size: 9px;
         color: $dark-gray;
         padding: 10px 10px 0;
+        z-index: 1;
+        position: relative;
     }
 
     &_col {

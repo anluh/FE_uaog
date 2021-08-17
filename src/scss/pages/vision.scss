@@ -1,57 +1,113 @@
+
+body {
+    position: relative;
+}
+
 .vision-section {
+    position: relative;
+    
     &--dark {
         background: center / cover no-repeat url("../img/vision-dark-bg.jpg") #000;
-        color: rgba(#fff, 0.7);
+        color: rgba(#fff, 0.75);
         
         b {
             color: #fff;
-        } 
+        }
     }
     &--light {
         background: center / cover no-repeat url("../img/vision-light-bg.jpg") #fff;
-        color: rgba(#000, 0.7);
+        color: rgba(#000, 0.75);
 
         b {
             color: #000;
         } 
     }
 
-    &_wrap {
+    &--doctrines {
+        background: center / cover no-repeat url("../img/vision-bg.jpg") #000;
+        color: rgba(#fff, 0.75);
+        position: static;
+
+        
+        b {
+            color: #fff;
+        }
+
+        &:before {
+            display: none;
+        }
+    }
+
+    &:before {
+        content: "";
+        position: absolute;
+        right: 0;
+        left: 0;
+        top: 0;
+        bottom: 0;
         background-size: contain;
         background-repeat: no-repeat;
+        z-index: 0;
+    }
 
-        &--img-right {
-            background-position: right;
-        }
-        &--img-left {
-            background-position: left;
-        }
-        &--img-center {
-            background-position: center;
-        }
+    &--img-right:before {
+        background-position: right;
+    }
+    &--img-left:before {
+        background-position: left;
+    }
+    &--img-center:before {
+        background-position: center;
+    }
 
-        &--section1 {
-            background-image:  url("../img/vision-section1.png");
-        }
-        &--section2 {
-            background-image:  url("../img/vision-section2.png");
-        }
-        &--section3 {
-            background-image:  url("../img/vision-section3.png");
-        }
-        &--section4 {
-            background-image:  url("../img/vision-section4.png");
-        }
-        &--section5 {
-            background-image:  url("../img/vision-section5.png");
+    &--section1:before {
+        background-image:  url("../img/vision-section1.png");
+    }
+    &--section2:before{
+        background-image:  url("../img/vision-section2.png");
+    }
+    &--section3:before{
+        background-image:  url("../img/vision-section3.png");
+    }
+    &--section4:before {
+        background-image:  url("../img/vision-section4.png");
+    }
+    &--section5:before {
+        background-image:  url("../img/vision-section5.png");
+    }
+
+    @include respond-to(mobile) {
+        &:before {
+            opacity: 0.7;
         }
     }
 
     &_text {
-        padding: 102px 45px;
-        max-width: 65%;
+        position: relative;
+        z-index: 1;
         font-weight: 800;
-        font-size: 30px;
+        
+        @include respond-to(desktop) {
+            font-size: 31px;
+            padding: 102px 45px;
+            max-width: 68%;
+        }
+
+        @include respond-to(tablets) {
+            padding: 80px 40px;
+            font-size: 30px;
+        }
+
+        @include respond-to(phones) {
+            padding: 50px 20px;
+            font-size: 28px;
+            text-align: left;
+            margin: 0 auto;
+        }
+
+        @include respond-to(phones-portrait) {
+            font-size: 24px;
+        }
 
         &--left {
             margin-right: auto;
@@ -60,24 +116,134 @@
         }
 
         &--right {
-            margin-left: auto;
-            margin-right: 0;
-            text-align: right;
+
+            @include respond-to(no-phones) {
+                margin-left: auto;
+                margin-right: 0;
+                text-align: right;
+            }
         }
 
         &--center {
             margin: 0 auto;
             text-align: center;
+
+            @include respond-to(desktop) {
+                padding: 102px 0 60px;
+            }
+    
+            @include respond-to(tablets) {
+                padding: 80px 0 40px;
+            }
+    
+            @include respond-to(phones) {
+                padding: 30px 20px;
+            }
         }
 
         b {
             font-weight: 900;
         }
     }
+}
 
-    &_
+.doctrines {
+    @include respond-to(phones) {
+        padding-bottom: 55px;
+    }
 
-    &:nth-child(1) {
-        background-image: url("../img/vision-section1.png");
+    @include respond-to(phones-portrait) {
+        padding-bottom: 10px;
+    }
+
+    @include respond-to(desktop) {
+        display: flex;
+        justify-content: center;
+    }
+    
+
+    &_image {
+        
+        @include respond-to(desktop) {
+            width: calc(100% / 3);
+            max-width: 360px
+        }
+
+        @include respond-to(mobile) {
+            width: 0;
+        }
+
+
+
+        &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: 0;
+            height: 100%;
+            width: 100%;
+            max-height: 780px;
+            max-width: 215px;
+            left: 50%;
+            transform: translate(-50%);
+
+            @include respond-to (no-phones) {
+                background: center bottom / contain no-repeat url("../img/vision-section6.png");
+            }
+
+            @include respond-to (phones) {
+                background: center bottom / contain no-repeat url("../img/vision-section6-mob.png");
+
+            }
+        }
+    }
+    &_col {
+        
+        @include respond-to(desktop) {
+            width: calc(100% / 3);
+
+            &--right {
+                text-align: left;
+            }
+            &--left {
+                text-align: right;
+            }
+        }
+        @include respond-to(mobile) {
+            text-align: center;
+        }
+    }
+}
+.doctrines-list {
+    color: #fff;
+    list-style-type: decimal;
+    font-size: 18px;
+    font-weight: 800;
+    list-style-position: inside;
+
+    @include respond-to(desktop) {
+        min-height: 430px;
+    }
+
+    @include respond-to(mobile) {
+        display: flex;
+        flex-wrap: wrap;
+        z-index: 1;
+        position: relative;
+    }
+
+    &_item {
+        margin: 13px 0;
+
+        @include respond-to(mobile) {
+            width: 50%;
+        }
+        @include respond-to(desktop) {
+        
+            .doctrines_col--right & {
+                margin: 24px 0;
+            }
+        }
+
     }
 }

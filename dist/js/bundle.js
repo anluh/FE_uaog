@@ -14596,28 +14596,6 @@ function pasteArrowsElements(slide, arrow) {
 
 /***/ }),
 
-/***/ "./src/scss/pages/projects.scss":
-/*!**************************************!*\
-  !*** ./src/scss/pages/projects.scss ***!
-  \**************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ "./src/scss/pages/vision.scss":
-/*!************************************!*\
-  !*** ./src/scss/pages/vision.scss ***!
-  \************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/extract-text-webpack-plugin/dist/loader.js):\nModuleNotFoundError: Module not found: Error: Can't resolve '../img/vision-dark-bg.jpg' in '/My_files/Projects/uaog-markup/src/scss/pages'\n    at /My_files/Projects/uaog-markup/node_modules/webpack/lib/Compilation.js:925:10\n    at /My_files/Projects/uaog-markup/node_modules/webpack/lib/NormalModuleFactory.js:401:22\n    at /My_files/Projects/uaog-markup/node_modules/webpack/lib/NormalModuleFactory.js:130:21\n    at /My_files/Projects/uaog-markup/node_modules/webpack/lib/NormalModuleFactory.js:224:22\n    at /My_files/Projects/uaog-markup/node_modules/neo-async/async.js:2830:7\n    at /My_files/Projects/uaog-markup/node_modules/neo-async/async.js:6877:13\n    at /My_files/Projects/uaog-markup/node_modules/webpack/lib/NormalModuleFactory.js:214:25\n    at /My_files/Projects/uaog-markup/node_modules/enhanced-resolve/lib/Resolver.js:213:14\n    at /My_files/Projects/uaog-markup/node_modules/enhanced-resolve/lib/Resolver.js:285:5\n    at eval (eval at create (/My_files/Projects/uaog-markup/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:15:1)\n    at /My_files/Projects/uaog-markup/node_modules/enhanced-resolve/lib/UnsafeCachePlugin.js:44:7\n    at /My_files/Projects/uaog-markup/node_modules/enhanced-resolve/lib/Resolver.js:285:5\n    at eval (eval at create (/My_files/Projects/uaog-markup/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:15:1)\n    at /My_files/Projects/uaog-markup/node_modules/enhanced-resolve/lib/Resolver.js:285:5\n    at eval (eval at create (/My_files/Projects/uaog-markup/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:27:1)\n    at /My_files/Projects/uaog-markup/node_modules/enhanced-resolve/lib/DescriptionFilePlugin.js:67:43\n    at /My_files/Projects/uaog-markup/node_modules/enhanced-resolve/lib/Resolver.js:285:5\n    at eval (eval at create (/My_files/Projects/uaog-markup/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:16:1)\n    at /My_files/Projects/uaog-markup/node_modules/enhanced-resolve/lib/Resolver.js:285:5\n    at eval (eval at create (/My_files/Projects/uaog-markup/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:27:1)\n    at /My_files/Projects/uaog-markup/node_modules/enhanced-resolve/lib/DescriptionFilePlugin.js:67:43\n    at /My_files/Projects/uaog-markup/node_modules/enhanced-resolve/lib/Resolver.js:285:5\n    at eval (eval at create (/My_files/Projects/uaog-markup/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:16:1)\n    at /My_files/Projects/uaog-markup/node_modules/enhanced-resolve/lib/Resolver.js:285:5\n    at eval (eval at create (/My_files/Projects/uaog-markup/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:15:1)\n    at /My_files/Projects/uaog-markup/node_modules/enhanced-resolve/lib/DirectoryExistsPlugin.js:27:15\n    at /My_files/Projects/uaog-markup/node_modules/enhanced-resolve/lib/CachedInputFileSystem.js:85:15\n    at processTicksAndRejections (internal/process/task_queues.js:76:11)");
-
-/***/ }),
-
 /***/ "./src/scss/style.scss":
 /*!*****************************!*\
   !*** ./src/scss/style.scss ***!
@@ -14630,9 +14608,9 @@ throw new Error("Module build failed (from ./node_modules/extract-text-webpack-p
 /***/ }),
 
 /***/ 0:
-/*!**************************************************************************************************************************************************************************!*\
-  !*** multi ./src/js/index.js ./src/js/slider.js ./src/js/map.js ./src/js/countdown.js ./src/scss/style.scss ./src/scss/pages/projects.scss ./src/scss/pages/vision.scss ***!
-  \**************************************************************************************************************************************************************************/
+/*!**************************************************************************************************************!*\
+  !*** multi ./src/js/index.js ./src/js/slider.js ./src/js/map.js ./src/js/countdown.js ./src/scss/style.scss ***!
+  \**************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -14640,9 +14618,7 @@ __webpack_require__(/*! ./src/js/index.js */"./src/js/index.js");
 __webpack_require__(/*! ./src/js/slider.js */"./src/js/slider.js");
 __webpack_require__(/*! ./src/js/map.js */"./src/js/map.js");
 __webpack_require__(/*! ./src/js/countdown.js */"./src/js/countdown.js");
-__webpack_require__(/*! ./src/scss/style.scss */"./src/scss/style.scss");
-__webpack_require__(/*! ./src/scss/pages/projects.scss */"./src/scss/pages/projects.scss");
-module.exports = __webpack_require__(/*! ./src/scss/pages/vision.scss */"./src/scss/pages/vision.scss");
+module.exports = __webpack_require__(/*! ./src/scss/style.scss */"./src/scss/style.scss");
 
 
 /***/ })

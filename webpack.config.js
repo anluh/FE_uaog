@@ -9,9 +9,7 @@ module.exports = {
     './src/js/slider.js',
     './src/js/map.js',
     './src/js/countdown.js',
-    './src/scss/style.scss',
-    './src/scss/pages/projects.scss',
-    './src/scss/pages/vision.scss'
+    './src/scss/style.scss'
   ],
   output: {
     filename: './js/bundle.js'
