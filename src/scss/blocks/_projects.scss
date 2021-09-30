@@ -73,9 +73,12 @@
     }
 }
 
-
 .pslider-item {
     @include dark-overlay(.75, 90%, true);
+}
+
+.pslider-item,
+.projects-top {
     &_info-block {
         position: absolute;
         bottom: 40px;
@@ -134,7 +137,12 @@
         }
     }
     &_link {
-        @extend .hightlighted-button;
+        @include hightlighted-button;
+
+        &--green {
+            @include hightlighted-button($persian-green, #fff);
+        }
+
         @include respond-to(desktop) {
             margin-bottom: 20px;
         }
@@ -153,6 +161,10 @@
         @extend .decorated-title;
         text-align: left;
         padding: 0 5px;
+
+        &--huge {
+            @extend .huge-title;
+        }
     }
     &_description {
         line-height: 1.2;

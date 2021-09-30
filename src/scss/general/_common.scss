@@ -17,6 +17,21 @@
     @include grid-row();
 }
 
+.huge-title {
+    font-weight: 800;
+    font-size: 60px;
+    letter-spacing: .05em;
+    text-align: center;
+    text-transform: uppercase;
+
+    @include respond-to(phones-portrait) {
+        // font-size: 34px;
+    }
+    @include respond-to(phones-landscape) {
+        // font-size: 40px;
+    }
+}
+
 .big-title {
     font-weight: 800;
     font-size: 45px;
@@ -75,28 +90,5 @@
     &--active {
         opacity: 1;
         visibility: visible;
-    }
-}
-
-.hightlighted-button {
-    cursor: pointer;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    text-decoration: none;
-    align-items: center;
-    padding-bottom: 2px;
-    background-color: #fff;
-    color: #000;
-    font-size: 13px;
-    font-weight: bold;
-    width: 130px;
-    height: 30px;
-    border-radius: 15px;
-    transition: all .2s ease-out;
-    z-index: 1;
-
-    &:hover {
-        filter: drop-shadow(0 0 7px #fff);
     }
 }

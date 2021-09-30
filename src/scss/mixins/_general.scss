@@ -20,3 +20,29 @@
         }
     }
 }
+
+@mixin hightlighted-button (
+    $background-color: #fff,
+    $color: #000
+) {
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    align-items: center;
+    padding-bottom: 2px;
+    background-color: $background-color;
+    color: $color;
+    font-size: 13px;
+    font-weight: bold;
+    width: 130px;
+    height: 30px;
+    border-radius: 15px;
+    transition: all .2s ease-out;
+    z-index: 1;
+
+    &:hover {
+        filter: drop-shadow(0 0 7px #fff);
+    }
+}

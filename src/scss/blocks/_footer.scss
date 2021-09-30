@@ -62,7 +62,7 @@
     }
 
     &_donate-btn {
-        @extend .hightlighted-button;
+        @include hightlighted-button;
         margin: 15px auto 0;
     }
 }

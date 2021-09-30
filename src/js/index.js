@@ -47,9 +47,11 @@ function scrollDown() {
 
 function fixHeader() {
     let scroll = $(window).scrollTop(),
-      header = $('.js-main-header'),
-      stopPoint = header.position().top + header.outerHeight(true);
-        
+      header = $('.js-main-header');
+      
+    if (!header.length) return
+    let stopPoint = header.position().top + header.outerHeight(true);
+      
     if (scroll >= stopPoint) {
       header.addClass('main-header--fixed');
       if (!$('body').hasClass('body--menu-opened')) {

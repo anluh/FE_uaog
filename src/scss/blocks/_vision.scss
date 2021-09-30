@@ -54,7 +54,7 @@
     }
 
     &_link {
-        @extend .hightlighted-button;
+        @include hightlighted-button;
         margin: 0 auto 15px;
     }
 }

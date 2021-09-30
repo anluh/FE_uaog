@@ -7,17 +7,73 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    <header>
-        <div class="pslider-item_info-block container">
-            <div class="pslider-item_texts">
-                <div class="pslider-item_title-wrap">
-                    <h2 class="pslider-item_title js-slide-title">Недільна школа</h2>
-                </div>
-                <p class="pslider-item_description">Вже давно відомо, що читабельний зміст буде заважати зосередитись людині, яка оцінює композицію сторінки. </p>
+    <div class="projects-page">
+        <header class="projects-page_header">
+            <div class="projects-page_top-bar top-bar js-top-bar">
+                <a class="top-bar_link" href="/index.html">
+                    <svg class="top-bar_svg top-bar_svg--left">
+                        <use xlink:href="../icons/sprite.svg#arrow"/>
+                    </svg>
+                    <span class="top-bar_link-text">на головну</span>
+                </a>
+                <button class="top-bar_link top-bar_link--mobile-show top-bar_link--black-bg js-show-projects-nav">
+                    <svg class="top-bar_svg top-bar_svg--right">
+                        <use xlink:href="../icons/sprite.svg#arrow"/>
+                    </svg>
+                    <span class="top-bar_link-text">всі служіння</span>
+                </button>
+                <div class="top-bar_count">01</div>
             </div>
-            <a href="/projects#sundayschool" class="pslider-item_link">Пожертвувати</a>
-            <a href="/projects#sundayschool" class="pslider-item_link">Детальніше</a>
-        </div>
-    </header>   
-    <img src="../uploads/projects/slide1.jpg" alt="" class="background-img">
+            <nav class="projects-nav">
+                <ul class="projects-nav_list">
+                    <li class="projects-nav_item"><a href="" class="projects-nav_link">недільна школа</a></li>
+                    <li class="projects-nav_item"><a href="" class="projects-nav_link">медіа</a></li>
+                    <li class="projects-nav_item"><a href="" class="projects-nav_link">організація ми+</a></li>
+                    <li class="projects-nav_item"><a href="" class="projects-nav_link">прославлення</a></li>
+                    <li class="projects-nav_item"><a href="" class="projects-nav_link">притулок</a></li>
+                    <li class="projects-nav_item"><a href="" class="projects-nav_link">медіа</a></li>
+                    <li class="projects-nav_item"><a href="" class="projects-nav_link projects-nav_link--active">недільна школа</a></li>
+                    <li class="projects-nav_item"><a href="" class="projects-nav_link">медіа</a></li>
+                    <li class="projects-nav_item"><a href="" class="projects-nav_link">організація ми+</a></li>
+                    <li class="projects-nav_item"><a href="" class="projects-nav_link">прославлення</a></li>
+                    <li class="projects-nav_item"><a href="" class="projects-nav_link">притулок</a></li>
+                    <li class="projects-nav_item"><a href="" class="projects-nav_link">медіа</a></li>
+                    <li class="projects-nav_item"><a href="" class="projects-nav_link">організація ми+</a></li>
+                    <li class="projects-nav_item"><a href="" class="projects-nav_link">прославлення</a></li>
+                    <li class="projects-nav_item"><a href="" class="projects-nav_link">притулок</a></li>
+                </ul>
+                <!-- <svg version="1.1" id="js-blob" class="projects-nav_blob" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <path id="js-blob-path" class="projects-nav_blob-path" d="M5,500H0V0h5c0,0,20,172,20,250S5,900,5,500z"/>
+                </svg> -->
+            </nav>
+        </header>
+            
+        <main id="main-info" class="projects-page_main">
+            <div class="projects-page_background-wrap">
+                <img src="../uploads/projects/slide1.jpg" alt="" class="projects-page_background-img js-background-img">
+            </div>
+            <div class="js-project-top-wrap">
+                <div class="js-project-top projects-page_info-block projects-top projects-top--fixed container">
+                    <div class="projects-top_texts">
+                        <div class="projects-top_title-wrap">
+                            <h2 class="projects-top_title projects-top_title--huge js-slide-title">Недільна школа</h2>
+                        </div>
+                    </div>
+                    <div class="projects-top_description-wrap">
+                        <p class="projects-page_paragraph projects-top_description">Вже давно відомо, що читабельний зміст буде заважати зосередитись людині, яка оцінює композицію сторінки. </p>
+                        <div class="projects-top_description-links">
+                            <a href="/projects#sundayschool" class="projects-top_link projects-top_link--green">Пожертвувати</a>
+                            <a href="#main" class="projects-top_link projects-top_link-more js-scroll-to-more">Детальніше</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="projects-page_main-info container">
+                <p class="projects-page_paragraph">Існує багато варіацій уривків з Lorem Ipsum, але більшість з них зазнала певних змін на кшталт жартівливих вставок або змішування слів, які навіть не виглядають правдоподібно. Якщо ви збираєтесь використовувати Lorem Ipsum, ви маєте упевнитись в тому, що всередині тексту не приховано нічого, що могло б викликати у читача конфуз.</p>
+                <img class="projects-page_content-img" src="../uploads/projects-description.jpg" alt="">
+            </div>
+        </main>
+    </div> 
+    <script src="../js/bundle.js"></script>
 </body>
