@@ -10,21 +10,25 @@
     <div class="projects-page">
         <header class="projects-page_header">
             <div class="projects-page_top-bar top-bar js-top-bar">
-                <a class="top-bar_link" href="/index.html">
+                <a class="top-bar_link top-bar_link--higher-z" href="/index.html">
                     <svg class="top-bar_svg top-bar_svg--left">
                         <use xlink:href="../icons/sprite.svg#arrow"/>
                     </svg>
                     <span class="top-bar_link-text">на головну</span>
                 </a>
                 <button class="top-bar_link top-bar_link--mobile-show top-bar_link--black-bg js-show-projects-nav">
+                    <span class="top-bar_link-text">всі служіння</span>
                     <svg class="top-bar_svg top-bar_svg--right">
                         <use xlink:href="../icons/sprite.svg#arrow"/>
                     </svg>
-                    <span class="top-bar_link-text">всі служіння</span>
                 </button>
                 <div class="top-bar_count">01</div>
             </div>
-            <nav class="projects-nav">
+            <nav class="projects-nav js-projects-nav">
+                <div class="js-hide-projects-nav projects-nav_close">
+                    <span class="projects-nav_close-line"></span>
+                    <span class="projects-nav_close-line"></span>
+                </div>
                 <ul class="projects-nav_list">
                     <li class="projects-nav_item"><a href="" class="projects-nav_link">недільна школа</a></li>
                     <li class="projects-nav_item"><a href="" class="projects-nav_link">медіа</a></li>

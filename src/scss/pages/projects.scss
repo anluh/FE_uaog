@@ -1,5 +1,4 @@
 $nav-width: 256px;
-$top-bar-height: 90px;
 
 .projects-nav {
     position: fixed;
@@ -8,10 +7,56 @@ $top-bar-height: 90px;
     background: rgba(0, 0, 0, .75);
     z-index: 1;
 
-    @include respond-to(no-phones) {
+    @include respond-to(desktop) {
         width: $nav-width;
         display: flex;
         justify-content: center;
+    }
+
+    @include respond-to(mobile) {
+        width: 100%;
+        z-index: 2;
+        transition: all ease-in-out 0.5s;
+        visibility: hidden;
+        opacity: 0;
+
+        &--show {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    &_close {
+        @include respond-to(desktop) {
+            display: none;
+        }
+        @include respond-to(mobile) {
+            width: 30px;
+            position: absolute;
+            top: 13px;
+            left: 10px;
+        }
+        
+    }
+
+    &_close-line {
+        @include respond-to(mobile) {
+            display: block;
+            position: absolute;
+            height: 3px;
+            width: 100%;
+            opacity: 1;
+            left: 0;
+            background-color: #fff;
+            top: 8px;
+
+            &:nth-child(1) {
+                transform: rotate(45deg);
+            }
+            &:nth-child(2) {
+                transform: rotate(-45deg);
+            }
+        }
     }
 
     &_list {
@@ -24,6 +69,11 @@ $top-bar-height: 90px;
 
         &::-webkit-scrollbar { 
             display: none;  /* Safari and Chrome */
+        }
+
+        @include respond-to(mobile) {
+            padding-right: 40px;
+            padding: 15px 50px 10px 0;
         }
     }
 
@@ -63,23 +113,17 @@ $top-bar-height: 90px;
                     background: #fff;
                     margin-right: 8px;
                 }
-
-                // &:after {
-                //     content: '';
-                //     display: block;
-                //     background: center / contain no-repeat url("../img/active-link.png");
-                //     width: 30px;
-                //     position: absolute;
-                //     left: 100%;
-                //     height: 100%;
-                //     // opacity: 0.9;
-                // }
             }
         }
 
         @include respond-to (mobile) {
-            font-size: 30px;
-            padding: 15px 0;
+            font-size: 28px;
+            padding: 9px 0;
+            justify-content: flex-end;
+
+            &--active {
+                color: $riptide;
+            }
         }
     }
     &_blob {
@@ -105,8 +149,10 @@ $top-bar-height: 90px;
 
     @include dark-overlay(.65, 80%, true);
 
-    &_header {
-        
+    &_info-block {
+        @include respond-to(phones) {
+            text-align: center;
+        }
     }
 
     &_content-img {
@@ -123,6 +169,12 @@ $top-bar-height: 90px;
         object-fit: cover;
         width: 100%;
         z-index: -1;
+
+        @include respond-to(mobile) {
+            .projects-nav-shown & {
+                filter: blur(8px);
+            }
+        }
     }
 
     &_background-wrap {
@@ -135,11 +187,15 @@ $top-bar-height: 90px;
         position: relative;
         overflow: auto;
 
-        @include respond-to(no-phones) {
+        @include respond-to(desktop) {
             width: calc(100% - #{$nav-width});
             margin-right: 0;
             margin-left: auto;
             padding: 20px 10px;
+        }
+        
+        @include respond-to(mobile) {
+            transition: all ease-in-out 0.5s;
         }
     }
 
@@ -147,59 +203,124 @@ $top-bar-height: 90px;
         font-size: 17px;
         font-weight: 500;
         margin: 10px 0;
+        font-size: 17px;
 
-        @include respond-to(no-phones) {
-            font-size: 17px;
+        @include respond-to(phones-portrait) {
+            font-size: 16px;
         }
+    }
 
+    &_main-info {
+        @include respond-to(mobile) {
+            .projects-nav-shown & {
+                filter: blur(8px);
+            }
+        }
         @include respond-to(phones) {
-            font-size: 22px;
+            margin-top: 25px;
         }
-
     }
 }
 
 .projects-top {
-    // transition: all ease-in-out 0.1s;
 
-    &--fixed {
-        // position: fixed;
-        // bottom: 0;
-        // width: calc(100% - #{$nav-width} - 20px);
+    @include respond-to(mobile) {
+        .projects-nav-shown & {
+            filter: blur(8px);
+        }
     }
 
     &:not(.projects-top--fixed) {
         .projects-top_link-more {
             opacity: 0;
+            width: 0;
+            margin: 0;
             visibility: hidden;
+        }
+        .projects-top_link {
+            margin-left: auto;
+            margin-left: auto;
+        }
+    }
+
+    &_title-wrap {
+        @include respond-to(phones) {
+            margin: 0 auto;
         }
     }
 
     &_description-wrap {
         display: flex;
         align-items: flex-start;
+
+        @include respond-to (phones) {
+            flex-direction: column;
+        }
+    }
+
+    &_link {
+        overflow: hidden;
+
+        @include respond-to (phones) {
+            margin: 0 25px;
+        }
+
+        @include respond-to(phones-portrait) {
+            margin: 0 15px;
+
+            &:nth-child(1) {
+                .projects-top--fixed & {
+                    margin-left: 0;
+                }
+            }
+
+            &:nth-child(2) {
+                .projects-top--fixed {
+                    margin-right: 0;
+                }
+            }
+        }
     }
     
+    &_description {
+        @include respond-to (phones) {
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
     &_description-links {
         padding: 10px 20px 0 30px;
-        // align-self: center;
+        @include respond-to (phones) {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            padding: 10px 0 0;
+        }
     }
 }
 
 .top-bar {
-    // position: fixed;
-    // top: 0;
     right: 0;
-    width: calc(100% - #{$nav-width});
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-right: 0;
     margin-left: auto;
-    height: $top-bar-height;
 
-    @include respond-to(no-phones) {
+    @include respond-to(desktop) {
         padding: 40px 45px 10px;
+        width: calc(100% - #{$nav-width});
+    }
+
+    @include respond-to(mobile) {
+        width: 100%;
+        transition: all ease-in-out 0.5s;
+
+        .projects-nav-shown & {
+            filter: blur(8px);
+        }
     }
 
     &_link {
@@ -208,29 +329,60 @@ $top-bar-height: 90px;
         font-size: 22px;
         font-weight: 600;
         display: flex;
+        text-transform: uppercase;
 
-        @include respond-to(no-phones) {
+        @include respond-to(mobile) {
+            padding: 23px 28px 23px 40px;
+            font-size: 21px;
+        }
 
+        @include respond-to(phones-landscape) {
+            padding: 20px 14px 20px 30px;
+            font-size: 20px;
+        }
+
+        @include respond-to(phones-portrait) {
+            padding: 10px 10px;
+            font-size: 14px;
+        }
+
+        &--higher-z {
+            @include respond-to(mobile) {
+                z-index: 3;
+            }
         }
 
         &--mobile-show {
-            @include respond-to(no-phones) {
+            @include respond-to(desktop) {
                 display: none;
             }
     
-            @include respond-to(phones) {
-                
+            @include respond-to(mobile) {
             }
         }
 
         &--black-bg {
             background-color: #000;
             color: #fff;
+            padding-left: 55px;
+            border-radius: 0 0 0 80px;
+
+            @include respond-to(phones-landscape) {
+                padding-left: 30px;
+            }
+
+            @include respond-to(phones-portrait) {
+                padding-left: 20px;
+            }
         }
     }
 
     &_link-text {
-        margin: 0 14px; 
+        margin: 0 14px;
+        
+        @include respond-to(phones-portrait) {
+            margin: 0 5px;
+        }
     }
 
     &_count {
@@ -238,7 +390,7 @@ $top-bar-height: 90px;
         color: #fff;
         font-weight: 700;
 
-        @include respond-to(phones) {
+        @include respond-to(mobile) {
             display: none;
         } 
     }
@@ -247,6 +399,18 @@ $top-bar-height: 90px;
         fill: #fff;
         width: 15px;
         height: 30px;
+
+        @include respond-to(mobile) {
+            height: 25px;
+        }
+
+        @include respond-to(phones-landscape) {
+            height: 23px;
+        }
+        
+        @include respond-to(phones-portrait) {
+            height: 16px;
+        }
 
         &--left {
             transform: rotate(180deg);
