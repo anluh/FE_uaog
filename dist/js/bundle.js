@@ -14269,18 +14269,27 @@ function requireAll(r) {
 requireAll(__webpack_require__("./src/icons sync recursive \\.svg$"));
 
 // add eventListeners
+var header = $('.js-main-header');
 
-$('.js-menu-button').on('click', openMobileMenu);
+$('.js-menu-button').on('click', toggleMobileMenu);
 $('.js-nav').on('click', scrollToBlock);
 $('.js-bottom-arrow').on('click', scrollDown);
 $(window).on('scroll', fixHeader);
 
 // mobile menu 
-function openMobileMenu() {
+function toggleMobileMenu() {
   $('.js-menu-button').toggleClass('menu-button--opened');
   $('body').toggleClass('body--menu-opened');
   $('.js-nav').slideToggle();
   $('.js-green-overlay').toggleClass('green-overlay--active');
+}
+
+function closeMobileMenu() {
+  header.removeClass('main-header--fixed');
+  $('body').removeClass('body--menu-opened');
+  $('.js-menu-button').removeClass('menu-button--opened');
+  $('.js-green-overlay').removeClass('green-overlay--active');
+  $('.js-nav').show();
 }
 
 function scrollToBlock(e) {
@@ -14306,8 +14315,7 @@ function scrollDown() {
 }
 
 function fixHeader() {
-  var scroll = $(window).scrollTop(),
-      header = $('.js-main-header');
+  var scroll = $(window).scrollTop();
 
   if (!header.length) return;
   var stopPoint = header.position().top + header.outerHeight(true);
@@ -14318,8 +14326,7 @@ function fixHeader() {
       $('.js-nav').hide();
     }
   } else {
-    header.removeClass('main-header--fixed');
-    $('.js-nav').show();
+    closeMobileMenu();
   }
 }
 
@@ -14537,6 +14544,7 @@ exports.default = [{
 var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
 var mainBlock = $('#main-info');
+var $projectTopWrap = $('.js-project-top-wrap');
 var projectDescrHeight = $('.js-project-top').outerHeight();
 var topBarHeight = $('.js-top-bar').outerHeight();
 
@@ -14544,9 +14552,10 @@ $(window).on('load', topInfoPosition);
 $(window).on('resize', topInfoPosition);
 
 function topInfoPosition() {
-	$('.js-project-top-wrap').css({
+	console.log(657576);
+	$projectTopWrap.css({
 		height: projectDescrHeight + 'px',
-		marginTop: '-' + (projectDescrHeight + topBarHeight + 10) + 'px'
+		marginTop: '-' + (projectDescrHeight + topBarHeight + 20) + 'px'
 	});
 }
 
@@ -14558,7 +14567,7 @@ mainBlock.on('scroll', function () {
 		filter: "blur(" + blurcof / 40 + "px)"
 	});
 
-	if ($(window).scrollTop() + $(window).height() < $('.js-project-top-wrap').offset().top + $('.js-project-top-wrap').height()) {
+	if ($(window).height() <= $projectTopWrap.offset().top + $projectTopWrap.height() + 20) {
 		$('.js-project-top').addClass('projects-top--fixed');
 	} else {
 		$('.js-project-top').removeClass('projects-top--fixed');

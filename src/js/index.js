@@ -9,18 +9,27 @@ function requireAll(r) {
 requireAll(require.context('../icons/', true, /\.svg$/));
 
 // add eventListeners
+const header = $('.js-main-header');
 
-$('.js-menu-button').on('click', openMobileMenu);
+$('.js-menu-button').on('click', toggleMobileMenu);
 $('.js-nav').on('click', scrollToBlock);
 $('.js-bottom-arrow').on('click', scrollDown);
 $(window).on('scroll', fixHeader);
 
 // mobile menu 
-function openMobileMenu() {
+function toggleMobileMenu() {
   $('.js-menu-button').toggleClass('menu-button--opened');
   $('body').toggleClass('body--menu-opened');
   $('.js-nav').slideToggle();
   $('.js-green-overlay').toggleClass('green-overlay--active');
+}
+
+function closeMobileMenu() {
+  header.removeClass('main-header--fixed');
+  $('body').removeClass('body--menu-opened')
+  $('.js-menu-button').removeClass('menu-button--opened');
+  $('.js-green-overlay').removeClass('green-overlay--active');
+  $('.js-nav').show();
 }
 
 function scrollToBlock(e) {
@@ -46,8 +55,7 @@ function scrollDown() {
 }
 
 function fixHeader() {
-    let scroll = $(window).scrollTop(),
-      header = $('.js-main-header');
+    let scroll = $(window).scrollTop();
       
     if (!header.length) return
     let stopPoint = header.position().top + header.outerHeight(true);
@@ -58,7 +66,6 @@ function fixHeader() {
         $('.js-nav').hide();
       }
     } else {
-      header.removeClass('main-header--fixed');
-      $('.js-nav').show();
+      closeMobileMenu()
     }
 }
